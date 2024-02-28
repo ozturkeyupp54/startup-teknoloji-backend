@@ -1,0 +1,178 @@
+{% extends 'base.html' %} {% load static %} {% block container %}
+      <div class="main ts-contain cf right-sidebar">
+        <div class="ts-row">
+          <div class="col-8 main-content">
+            <h1 class="archive-heading">Arama:</h1>
+
+            <section class="block-wrap block-grid mb-none" data-id="1">
+              <div class="block-content">
+                <div class="loop loop-grid loop-grid-base grid grid-2 md:grid-2 xs:grid-1">{% for post in posts%}
+                  <article class="l-post grid-post grid-base-post">
+                    {% if post.haber_baslik_resmi %}
+                    <div class="media">
+                      {%if post.title%}
+                      <a
+                        href="{% url 'post:post_detail' slug=post.slug %}"
+                        class="image-link media-ratio ratio-16-9"
+                        title="{{ post.title }}"
+                        ><span
+                          data-bgsrc="{{ post.haber_baslik_resmi.url }}"
+                          class="img bg-cover wp-post-image attachment-bunyad-medium size-bunyad-medium lazyload"
+                          data-bgset="{{ post.haber_baslik_resmi.url }}"
+                          data-sizes="(max-width: 377px) 100vw, 377px"
+                        ></span
+                      ></a>{%endif%} {%endif%}
+                    </div>
+
+                    <div class="content">
+                      <div class="post-meta post-meta-a has-below">
+                        <div class="post-meta-items meta-above">
+                          <span class="meta-item post-cat">
+                            <a
+                              href="https://startupteknoloji.com/category/haber/yatirim-haberleri/"
+                              class="category term-color-8858"
+                              rel="category"
+                              >{{ post.category.name }}</a
+                            >
+                          </span>
+                        </div>
+                        <h2 class="is-title post-title">
+                           {%if post.title%}
+                          <a
+                            href="{% url 'post:post_detail' slug=post.slug %}"
+                            >{{ post.title }}</a
+                          >{%endif%}
+                        </h2>
+                        <div class="post-meta-items meta-below">
+                          <span class="meta-item post-author"
+                            ><span class="by">Yazar:</span>{% if post.author %}
+                            {% if post.creastor %}
+                            <a
+                              href="{% url 'author:author_detail' slug=post.author.slug %}"
+                              title="{{ post.creator }} tarafından yazılan yazılar"
+                              rel="author"
+                              >{{ post.creator }}</a
+                            >{% endif %}</span
+                          >{% endif %}
+                          <span class="meta-item date"
+                            ><span class="date-link"
+                              ><time
+                                class="post-date"
+                                datetime="{{ post.post_date|date:"d F Y" }}"
+                                >{{ post.post_date|date:"d F Y" }}</time
+                              ></span
+                            ></span
+                          >
+                        </div>
+                      </div>
+                      <div class="excerpt">
+                        {% if post.content %}
+                            <p>{{ post.content|striptags|truncatewords:20|safe }}</p>
+                        {% endif %} 
+                      </div>
+                    </div>
+                  </article>{% endfor %}               
+                </div>    
+
+              <nav class="main-pagination pagination-numbers" data-type="numbers-ajax">{% if posts.has_previous %}
+                <a class="page-numbers" href="?page=1" aria-label="İlk">
+                    1
+                </a>
+                <a class="page-numbers" href="?page={{ posts.previous_page_number }}" aria-label="Önceki">
+                    {{ posts.previous_page_number }}
+                </a>{% endif %}<span aria-current="page" class="page-numbers current">{{ posts.number }}</span>{% if posts.has_next %}
+                <a class="page-numbers" href="?page={{ posts.next_page_number }}" aria-label="Sonraki">
+                    {{ posts.next_page_number }}
+                </a>
+                  <!-- Include the dots if there are multiple pages -->
+                  {% if posts.paginator.num_pages > 3 and posts.number > 1 %}
+                      <span class="page-numbers dots">&hellip;</span>
+                  {% endif %}
+                <a class="page-numbers" href="?page={{ posts.paginator.num_pages }}" aria-label="Son">
+                    {{ posts.paginator.num_pages }}
+                </a>{% endif %}
+                <a class="next page-numbers" href="?page={{ posts.next_page_number }}">
+                <span class="visuallyhidden">Next</span>
+                <i class="tsi tsi-angle-right"></i></a>
+              </nav>
+
+              </div>
+            </section>
+          </div>
+
+            <aside class="col-4 main-sidebar has-sep">
+              <div class="inner">
+                <div
+                  id="smartmag-block-posts-small-5"
+                  class="widget ts-block-widget smartmag-widget-posts-small"
+                >
+                  <div class="block">
+                    <section
+                      class="block-wrap block-posts-small block-sc mb-none"
+                      data-id="2"
+                    >
+                      <div
+                        class="widget-title block-head block-head-ac block-head block-head-ac block-head-e block-head-e2 is-left has-style"
+                      >
+                        <h5 class="heading">Girişimcilik Gündemi</h5>
+                        {% for post in girisimcilik_posts.all|slice:":10" %}
+
+                      </div>
+                      <div class="block-content">
+                        <div
+                          class="loop loop-small loop-small-a loop-sep loop-small-sep grid grid-1 md:grid-1 sm:grid-1 xs:grid-1"
+                        >
+                          <article
+                            class="l-post small-post small-a-post m-pos-left"
+                          >
+                            <div class="media">
+                              {% if post.haber_baslik_resmi %}
+                              <a
+                                href="{% url 'post:post_detail' slug=post.slug %}"
+                                class="image-link media-ratio ar-bunyad-thumb"
+                                title="{{ girisimcilik_posts.title }}"
+                                ><span
+                                  data-bgsrc="{{ post.haber_baslik_resmi.url }}"
+                                  class="img bg-cover wp-post-image attachment-medium size-medium lazyload"
+                                  data-bgset="{{ post.haber_baslik_resmi.url }}"
+                                  data-sizes="(max-width: 110px) 100vw, 110px"
+                                  
+                                ></span
+                              ></a>{% endif %}
+                            </div>
+
+                            <div class="content">
+                              <div
+                                class="post-meta post-meta-a post-meta-left has-below"
+                              >
+                                <h4 class="is-title post-title">
+                                  <a href="{% url 'post:post_detail' slug=post.slug %}">{{ post.title }}</a
+                                  >
+                                </h4>
+                                <div class="post-meta-items meta-below">
+                                  <span class="meta-item date"
+                                    ><span class="date-link"
+                                      ><time
+                                        class="post-date"
+                                        datetime="{{post.post_date|date:"d F Y"}}"
+                                        >{{post.post_date|date:"d F Y"}}</time
+                                      ></span
+                                    ></span
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </article>
+                          <br>
+                          {% endfor %}
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </aside>
+        </div>
+      </div>
+
+{% endblock container %}

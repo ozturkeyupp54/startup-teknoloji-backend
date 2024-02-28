@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<link rel="stylesheet" href="{% static 'post/style.css' %}" />
+  <h2>{{ girisim.girisim_adi }}</h2>
+  <p><strong>Kuruluş Tarihi:</strong> {{ girisim.girisim_kurulus_tarihi }}</p>
+  <p><strong>Detaylar:</strong> {{ girisim.detaylar }}</p>
+  <!-- Diğer gerekli bilgileri ekleyebilirsiniz -->
+
+  <div class="mt-3">
+    <a href="{% url 'girisim_update' pk=girisim.pk %}" class="btn btn-primary">Güncelle</a>
+    <a href="{% url 'girisim_delete' pk=girisim.pk %}" class="btn btn-danger">Sil</a>
+    <a href="{% url 'girisim_list' %}" class="btn btn-secondary">Geri</a>
+  </div>
+{% endblock %}

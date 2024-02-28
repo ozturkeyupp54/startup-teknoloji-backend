@@ -1,0 +1,868 @@
+{%load static%}
+
+      <div class="a-wrap a-wrap-base a-wrap-1 a-wrap-bg">
+        {% if advertisement.advertisement_ust_resmi %}
+            <a href="{{ advertisement.kampanyanin_websitesinin_linki }}" target="_blank">
+              <img class="banner" src="{% url 'advertisement:track_image_view' advertisement.id 'advertisement_ust_resmi' %}" alt="{{ advertisement.kampanya_basligi }}"/> 
+            </a>
+        {% endif %}
+      </div>
+      <div class="off-canvas-backdrop"></div>
+      <div class="mobile-menu-container off-canvas" id="off-canvas">
+        <div class="off-canvas-head">
+          <a href="#" class="close">
+            <span class="visuallyhidden">Close Menu</span>
+            <i class="tsi tsi-times"></i>
+          </a>
+
+          <div class="ts-logo">
+            <img
+              class="logo-mobile logo-image logo-image-dark"
+              src="{%static "wp-content/uploads/2022/04/StartupTeknoloji-Monil-Logo-Beyaz.png" %}"
+              width="300"
+              height="41"
+              alt="StartupTeknoloji"
+            /><img
+              class="logo-mobile logo-image"
+              src="{%static "wp-content/uploads/2022/04/StartupTeknoloji-Mobil-Logo-Siyah.png" %}"
+              width="300"
+              height="41"
+              alt="StartupTeknoloji"
+            />
+          </div>
+        </div>
+
+
+        <div class="off-canvas-content">
+          <ul id="menu-ana-menu" class="mobile-menu">
+            <li
+              id="menu-item-517"
+              class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-517"
+            >
+              <a href="{% url 'homepage' %}">Ana Sayfa</a>
+            </li>
+            <li
+              id="menu-item-47485"
+              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-47485"
+            >
+              <a href="{% url 'category_detail' slug='duyuru-haberleri' %}"
+              >Haber</a
+            >
+              <ul class="sub-menu">
+                <li
+                  id="menu-item-47486"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-47486"
+                >
+                 <a href="{% url 'category_detail' slug='duyuru-haberleri' %}"
+                >Duyuru Haberleri</a
+              >
+                </li>
+                <li
+                  id="menu-item-53166"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-53166"
+                >
+                  <a href="{% url 'category_detail' slug='yatirim-haberleri' %}"
+                >Yatırım Haberleri</a
+              >
+                </li>
+                <li
+                  id="menu-item-47487"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-47487"
+                >
+                  <a href="{% url 'category_detail' slug='marka-is-birlikleri' %}"
+                >Marka İş Birlikleri</a
+              >
+                </li>
+                <li
+                  id="menu-item-40424"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-40424"
+                >
+                  <a href="{% url 'category_detail' slug='rapor-ve-inceleme' %}"
+                >Rapor Ve İnceleme</a
+              >
+                </li>
+              </ul>
+            </li>
+            <li
+              id="menu-item-227"
+              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-227"
+            >
+              <a href="{% url 'category_detail' slug='startup-tanitim' %}"
+                >Startup</a
+              >
+              <ul class="sub-menu">
+                <li
+                  id="menu-item-3627"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3627"
+                >
+                  <a href="{% url 'category_detail' slug='startup-tanitim' %}"
+                >Startup Tanıtım</a
+              >
+                </li>
+                <li
+                  id="menu-item-83758"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-83758"
+                >
+                  <a href="{% url 'category_detail' slug='girisimcilik' %}"
+                >Girişimcilik</a
+              >
+                </li>
+                <li
+                  id="menu-item-83759"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-83759"
+                >
+                  <a href="{% url 'category_detail' slug='startup-raporlari' %}"
+                >Startup Raporları</a
+              >
+                </li>
+                <li
+                  id="menu-item-3629"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3629"
+                >
+                  <a href="{% url 'category_detail' slug='yeni-nesil-sirketler' %}"
+                >Yeni Nesil Şirketler</a
+              >
+                </li>
+                <li
+                  id="menu-item-3625"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3625"
+                >
+                  <a
+                href="{% url 'category_detail' slug='girisim-hizlandirma-programlari' %}"
+                >Girişim Hızlandırma Programları</a
+              >
+                </li>
+                <li
+                  id="menu-item-3626"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3626"
+                >
+                  <a href="{% url 'category_detail' slug='sosyal-girisimcilik' %}"
+                >Sosyal Girişimcilik</a
+              >
+                </li>
+              </ul>
+            </li>
+            <li
+              id="menu-item-27721"
+              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-27721"
+            >
+              <a href="{% url 'category_detail' slug='akilli-cihazlar' %}"
+                >Teknoloji</a
+              >
+              <ul class="sub-menu">
+                <li
+                  id="menu-item-41406"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-41406"
+                >
+                  <a href="{% url 'category_detail' slug='akilli-cihazlar' %}"
+                >Akıllı Cihazlar</a
+              >
+                </li>
+                <li
+                  id="menu-item-27732"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27732"
+                >
+                   <a href="{% url 'category_detail' slug='donanim' %}">Donanım</a>
+                </li>
+                <li
+                  id="menu-item-27748"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27748"
+                >
+                  <a href="{% url 'category_detail' slug='blockchain' %}"
+                >Blockchain</a
+              >
+                </li>
+                <li
+                  id="menu-item-27749"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27749"
+                >
+                  <a href="{% url 'category_detail' slug='apple' %}">Apple</a>
+                </li>
+                <li
+                  id="menu-item-47491"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-47491"
+                >
+                  <a href="{% url 'category_detail' slug='android' %}">Android</a>
+                </li>
+                <li
+                  id="menu-item-27744"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27744"
+                >
+                  <a href="{% url 'category_detail' slug='otomotiv' %}">Otomotiv</a>
+                </li>
+                <li
+                  id="menu-item-27745"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27745"
+                >
+                  <a href="{% url 'category_detail' slug='yapay-zeka' %}"
+                >Yapay Zeka</a
+              >
+                </li>
+                <li
+                  id="menu-item-27739"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27739"
+                >
+                  <a href="{% url 'category_detail' slug='uzay-ve-havacilik' %}"
+                >Uzay ve Havacılık</a
+              >
+                </li>
+                <li
+                  id="menu-item-27734"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27734"
+                >
+                  <a href="{% url 'category_detail' slug='siber-guvenlik' %}"
+                >Siber Güvenlik</a
+              >
+                </li>
+                <li
+                  id="menu-item-27747"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27747"
+                >
+                  <a href="{% url 'category_detail' slug='e-ticaret' %}"
+                >E-Ticaret</a
+              >
+                </li>
+                <li
+                  id="menu-item-27746"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27746"
+                >
+                  <a href="{% url 'category_detail' slug='uygulamalar' %}"
+                >Uygulamalar</a
+              >
+                </li>
+              </ul>
+            </li>
+            <li
+              id="menu-item-27722"
+              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-27722"
+            >
+              <a href="{% url 'category_detail' slug='oyun-dunyasi' %}"
+                >Dijital Yaşam</a
+              >
+              <ul class="sub-menu">
+                <li
+                  id="menu-item-27728"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27728"
+                >
+                  <a href="{% url 'category_detail' slug='oyun-dunyasi' %}"
+                >Oyun Dünyası</a
+              >
+                </li>
+                <li
+                  id="menu-item-27733"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-27733"
+                >
+                  <a href="{% url 'category_detail' slug='sosyal-medya' %}"
+                >Sosyal Medya</a
+              >
+                </li>
+                <li
+                  id="menu-item-49680"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-49680"
+                >
+                  <a href="{% url 'category_detail' slug='film-ve-dizi' %}"
+                >Film ve Dizi</a
+              >
+                </li>
+                <li
+                  id="menu-item-32474"
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-32474"
+                >
+                  <a href="{% url 'category_detail' slug='egitim' %}">Eğitim</a>
+                </li>
+              </ul>
+            </li>
+            <li
+              id="menu-item-70933"
+              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70933"
+            >
+              <a href="{% url 'category_detail' slug='roportaj' %}">Röportaj</a>
+            </li>
+            <li
+            id="menu-item-70933"
+            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70933"
+          >
+            <a href="{% url 'advertisement:advertisement/reklam_olustur' %}">Reklam ve Anaket</a>
+          </li>
+          <li
+          id="menu-item-70933"
+          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-70933"
+        >
+          <a href="#/"
+            >Girişim ve Yatırım</a
+          >
+        </li>
+            <li
+              id="menu-item-92946-en"
+              class="lang-item lang-item-8578 lang-item-en lang-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-92946-en"
+            >
+              <a
+                href="https://startupteknoloji.com/en/homepage/"
+                hreflang="en-US"
+                lang="en-US"
+                ><img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAmVBMVEViZsViZMJiYrf9gnL8eWrlYkjgYkjZYkj8/PujwPybvPz4+PetraBEgfo+fvo3efkydfkqcvj8Y2T8UlL8Q0P8MzP9k4Hz8/Lu7u4DdPj9/VrKysI9fPoDc/EAZ7z7IiLHYkjp6ekCcOTk5OIASbfY/v21takAJrT5Dg6sYkjc3Nn94t2RkYD+y8KeYkjs/v7l5fz0dF22YkjWvcOLAAAAgElEQVR4AR2KNULFQBgGZ5J13KGGKvc/Cw1uPe62eb9+Jr1EUBFHSgxxjP2Eca6AfUSfVlUfBvm1Ui1bqafctqMndNkXpb01h5TLx4b6TIXgwOCHfjv+/Pz+5vPRw7txGWT2h6yO0/GaYltIp5PT1dEpLNPL/SdWjYjAAZtvRPgHJX4Xio+DSrkAAAAASUVORK5CYII="
+                  alt=""
+                  width="16"
+                  height="11"
+                  style="width: 16px; height: 11px"
+                /><span style="margin-left: 0.3em">English</span></a
+              >
+            </li>
+          </ul>
+
+          <div class="off-canvas-widgets"></div>
+
+          <div
+            class="spc-social-block spc-social spc-social-b smart-head-social"
+          >
+            <a
+              href="https://www.facebook.com/startupteknoloji"
+              class="link service s-facebook"
+              target="_blank"
+              rel="nofollow noopener"
+            >
+              <i class="icon tsi tsi-facebook"></i>
+              <span class="visuallyhidden">Facebook</span>
+            </a>
+
+            <a
+              href="https://twitter.com/startuptek"
+              class="link service s-twitter"
+              target="_blank"
+              rel="nofollow noopener"
+            >
+              <i class="icon tsi tsi-twitter"></i>
+              <span class="visuallyhidden">X (Twitter)</span>
+            </a>
+
+            <a
+              href="https://www.instagram.com/startupteknoloji/"
+              class="link service s-instagram"
+              target="_blank"
+              rel="nofollow noopener"
+            >
+              <i class="icon tsi tsi-instagram"></i>
+              <span class="visuallyhidden">Instagram</span>
+            </a>
+
+            <a
+              href="https://www.youtube.com/channel/UCidxH9WD49L7Ipaett5rGtA"
+              class="link service s-youtube"
+              target="_blank"
+              rel="nofollow noopener"
+            >
+              <i class="icon tsi tsi-youtube-play"></i>
+              <span class="visuallyhidden">YouTube</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/company/startupteknoloji/"
+              class="link service s-linkedin"
+              target="_blank"
+              rel="nofollow noopener"
+            >
+              <i class="icon tsi tsi-linkedin"></i>
+              <span class="visuallyhidden">LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="smart-head smart-head-a smart-head-main"
+        id="smart-head"
+        data-sticky="mid"
+        data-sticky-type="fixed"
+        data-sticky-full
+      >
+        <div class="smart-head-row smart-head-top s-dark smart-head-row-full">
+          <div class="inner full">
+            <div class="items items-left">
+              <div class="nav-wrap">
+                <nav class="navigation navigation-small nav-hov-a">
+                  <ul id="menu-ust-menu-turkce" class="menu">
+                    <li
+                      id="menu-item-28207"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28207"
+                    >
+                      <a href="{% url 'navbar-top/girisim_ve_yatirim' %}">Girişiminizi Tanıtın</a>
+                    </li>
+                    <li
+                      id="menu-item-28208"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28208"
+                    >
+                      <a href="{% url 'navbar-top/reklam_ve_sponsorluk' %}"
+        >Reklam ve Sponsorluk</a
+      >
+                    </li>
+                    <li
+                      id="menu-item-33618"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33618"
+                    >
+                      <a href="{% url 'navbar-top/kariyer' %}">Kariyer</a>
+                    </li>
+                    <li
+                      id="menu-item-28209"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28209"
+                    >
+                      <a href="{% url 'navbar-top/kunye' %}">Künye</a>
+                    </li>
+                    <li
+                      id="menu-item-29461"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29461"
+                    >
+                      <a href="{% url 'navbar-top/iletisim' %}">İletişim</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+            <div class="items items-center empty"></div>
+
+            <div class="items items-right">
+              <div
+                class="spc-social-block spc-social spc-social-a smart-head-social"
+              >
+                <a
+                  href="https://www.linkedin.com/company/startupteknoloji/"
+                  class="link service s-linkedin"
+                  target="_blank"
+                  rel="nofollow noopener"
+                >
+                  <i class="icon tsi tsi-linkedin"></i>
+                  <span class="visuallyhidden">LinkedIn</span>
+                </a>
+
+                <a
+                  href="https://www.instagram.com/startupteknoloji/"
+                  class="link service s-instagram"
+                  target="_blank"
+                  rel="nofollow noopener"
+                >
+                  <i class="icon tsi tsi-instagram"></i>
+                  <span class="visuallyhidden">Instagram</span>
+                </a>
+
+                <a
+                  href="https://www.facebook.com/startupteknoloji"
+                  class="link service s-facebook"
+                  target="_blank"
+                  rel="nofollow noopener"
+                >
+                  <i class="icon tsi tsi-facebook"></i>
+                  <span class="visuallyhidden">Facebook</span>
+                </a>
+
+                <a
+                  href="https://twitter.com/startuptek"
+                  class="link service s-twitter"
+                  target="_blank"
+                  rel="nofollow noopener"
+                >
+                  <i class="icon tsi tsi-twitter"></i>
+                  <span class="visuallyhidden">X (Twitter)</span>
+                </a>
+
+                <a
+                  href="https://www.youtube.com/channel/UCidxH9WD49L7Ipaett5rGtA"
+                  class="link service s-youtube"
+                  target="_blank"
+                  rel="nofollow noopener"
+                >
+                  <i class="icon tsi tsi-youtube-play"></i>
+                  <span class="visuallyhidden">YouTube</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="smart-head-row smart-head-mid is-light smart-head-row-full">
+          <div class="inner full">
+            <div class="items items-left">
+              <a
+                href="{% url 'homepage' %}"
+                title="StartupTeknoloji"
+                rel="home"
+                class="logo-link ts-logo logo-is-image"
+              >
+                <h1>
+                  <img
+                    loading="lazy"
+                    src="https://startupteknoloji.com/wp-content/uploads/2022/04/StartupTeknoloji-Beyaz-Logo.png"
+                    class="logo-image logo-image-dark"
+                    alt="StartupTeknoloji"
+                    srcset="
+                      https://startupteknoloji.com/wp-content/uploads/2022/04/StartupTeknoloji-Beyaz-Logo.png,
+                      https://startupteknoloji.com/wp-content/uploads/2022/04/StartupTeknoloji-Monil-Logo-Beyaz.png 2x
+                    "
+                    width="300"
+                    height="41"
+                  /><img
+                    loading="lazy"
+                    src="https://startupteknoloji.com/wp-content/uploads/2022/04/StartupTeknoloji-Siyah-Logo.png"
+                    class="logo-image"
+                    alt="StartupTeknoloji"
+                    srcset="
+                      https://startupteknoloji.com/wp-content/uploads/2022/04/StartupTeknoloji-Siyah-Logo.png,
+                      https://startupteknoloji.com/wp-content/uploads/2022/04/StartupTeknoloji-Mobil-Logo-Siyah.png 2x
+                    "
+                    width="300"
+                    height="41"
+                  />
+                </h1>
+              </a>
+              <div class="nav-wrap">
+                <nav class="navigation navigation-main nav-hov-b">
+                  <ul id="menu-ana-menu-1" class="menu">
+                    <li
+                      class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-517"
+                    >
+                       <a href="{% url 'homepage' %}">Ana Sayfa</a>
+                    </li>
+                    <li
+                      class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-cat-1369 menu-item-47485"
+                    >
+                      <a href="{% url 'category_detail' slug='duyuru-haberleri' %}"
+              >Haber</a
+            >
+                      <ul class="sub-menu">
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-639 menu-item-47486"
+                        >
+                          <a href="{% url 'category_detail' slug='duyuru-haberleri' %}"
+                >Duyuru Haberleri</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-8858 menu-item-53166"
+                        >
+                          <a href="{% url 'category_detail' slug='yatirim-haberleri' %}"
+                >Yatırım Haberleri</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-546 menu-item-47487"
+                        >
+                          <a href="{% url 'category_detail' slug='marka-is-birlikleri' %}"
+                >Marka İş Birlikleri</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-104 menu-item-40424"
+                        >
+                          <a href="{% url 'category_detail' slug='rapor-ve-inceleme' %}"
+                >Rapor Ve İnceleme</a
+              >
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-cat-27 menu-item-227"
+                    >
+                      <a href="{% url 'category_detail' slug='startup-tanitim' %}"
+                >Startup</a
+              >
+                      <ul class="sub-menu">
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-333 menu-item-3627"
+                        >
+                          <a href="{% url 'category_detail' slug='startup-tanitim' %}"
+                >Startup Tanıtım</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-9188 menu-item-83758"
+                        >
+                          <a href="{% url 'category_detail' slug='girisimcilik' %}"
+                >Girişimcilik</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-9190 menu-item-83759"
+                        >
+                          <a href="{% url 'category_detail' slug='startup-raporlari' %}"
+                >Startup Raporları</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-93 menu-item-3629"
+                        >
+                          <a href="{% url 'category_detail' slug='yeni-nesil-sirketler' %}"
+                >Yeni Nesil Şirketler</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-107 menu-item-3625"
+                        >
+                          <a
+                href="{% url 'category_detail' slug='girisim-hizlandirma-programlari' %}"
+                >Girişim Hızlandırma Programları</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-73 menu-item-3626"
+                        >
+                          <a href="{% url 'category_detail' slug='sosyal-girisimcilik' %}"
+                >Sosyal Girişimcilik</a
+              >
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-cat-1 menu-item-27721"
+                    >
+                      <a href="{% url 'category_detail' slug='akilli-cihazlar' %}"
+                >Teknoloji</a
+              >
+                      <ul class="sub-menu">
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-26 menu-item-41406"
+                        >
+                          <a href="{% url 'category_detail' slug='akilli-cihazlar' %}"
+                >Akıllı Cihazlar</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-1381 menu-item-27732"
+                        >
+                          <a href="{% url 'category_detail' slug='donanim' %}">Donanım</a>
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-354 menu-item-27748"
+                        >
+                          <a href="{% url 'category_detail' slug='blockchain' %}"
+                >Blockchain</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-113 menu-item-27749"
+                        >
+                          <a href="{% url 'category_detail' slug='apple' %}">Apple</a>
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-1374 menu-item-47491"
+                        >
+                         <a href="{% url 'category_detail' slug='android' %}">Android</a>
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-77 menu-item-27744"
+                        >
+                          <a href="{% url 'category_detail' slug='otomotiv' %}">Otomotiv</a>
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-54 menu-item-27745"
+                        >
+                          <a href="{% url 'category_detail' slug='yapay-zeka' %}"
+                >Yapay Zeka</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-178 menu-item-27739"
+                        >
+                          <a href="{% url 'category_detail' slug='uzay-ve-havacilik' %}"
+                >Uzay ve Havacılık</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-1376 menu-item-27734"
+                        >
+                          <a href="{% url 'category_detail' slug='siber-guvenlik' %}"
+                >Siber Güvenlik</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-1601 menu-item-27747"
+                        >
+                          <a href="{% url 'category_detail' slug='e-ticaret' %}"
+                >E-Ticaret</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-1147 menu-item-27746"
+                        >
+                          <a href="{% url 'category_detail' slug='uygulamalar' %}"
+                >Uygulamalar</a
+              >
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-cat-72 menu-item-27722"
+                    >
+                      <a href="{% url 'category_detail' slug='oyun-dunyasi' %}"
+                >Dijital Yaşam</a
+              >
+                      <ul class="sub-menu">
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-28 menu-item-27728"
+                        >
+                          <a href="{% url 'category_detail' slug='oyun-dunyasi' %}"
+                >Oyun Dünyası</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-1380 menu-item-27733"
+                        >
+                          <a href="{% url 'category_detail' slug='sosyal-medya' %}"
+                >Sosyal Medya</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-2906 menu-item-49680"
+                        >
+                          <a href="{% url 'category_detail' slug='film-ve-dizi' %}"
+                >Film ve Dizi</a
+              >
+                        </li>
+                        <li
+                          class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-855 menu-item-32474"
+                        >
+                           <a href="{% url 'category_detail' slug='egitim' %}">Eğitim</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-1574 menu-item-70933"
+                    >
+                      <a href="{% url 'category_detail' slug='roportaj' %}">Röportaj</a>
+                    </li>
+                    <li
+                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-1574 menu-item-70933"
+                  >
+                    <a
+                      href="{% url 'advertisement:advertisement/reklam_paneli' %}"
+                      >Reklam Ve Anket</a
+                    >
+                  </li>
+                  <li
+                  class="menu-item menu-item-type-taxonomy menu-item-object-category menu-cat-1574 menu-item-70933"
+                >
+                  <a
+                    href="{% url 'category_detail' slug='roportaj' %}"
+                    >Girişim Ve Yatırım</a
+                  >
+                </li>
+                    <li
+                      class="lang-item lang-item-8578 lang-item-en lang-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-92946-en"
+                    >
+                      <a
+                        {% comment %} href="https://startupteknoloji.com/en/homepage/" {% endcomment %}
+                        href="{% url 'homepage' %}"
+                        hreflang="en-US"
+                        lang="en-US"
+                        ><img
+                          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAMAAABBPP0LAAAAmVBMVEViZsViZMJiYrf9gnL8eWrlYkjgYkjZYkj8/PujwPybvPz4+PetraBEgfo+fvo3efkydfkqcvj8Y2T8UlL8Q0P8MzP9k4Hz8/Lu7u4DdPj9/VrKysI9fPoDc/EAZ7z7IiLHYkjp6ekCcOTk5OIASbfY/v21takAJrT5Dg6sYkjc3Nn94t2RkYD+y8KeYkjs/v7l5fz0dF22YkjWvcOLAAAAgElEQVR4AR2KNULFQBgGZ5J13KGGKvc/Cw1uPe62eb9+Jr1EUBFHSgxxjP2Eca6AfUSfVlUfBvm1Ui1bqafctqMndNkXpb01h5TLx4b6TIXgwOCHfjv+/Pz+5vPRw7txGWT2h6yO0/GaYltIp5PT1dEpLNPL/SdWjYjAAZtvRPgHJX4Xio+DSrkAAAAASUVORK5CYII="
+                          alt=""
+                          width="16"
+                          height="11"
+                          style="width: 16px; height: 11px"
+                        /><span style="margin-left: 0.3em">English</span></a
+                      >
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+            <div class="items items-center empty"></div>
+
+            <div class="items items-right">
+              <div class="scheme-switcher has-icon-only">
+                <a
+                  href="#"
+                  class="toggle is-icon toggle-dark"
+                  title="Switch to Dark Design - easier on eyes."
+                >
+                  <i class="icon tsi tsi-moon"></i>
+                </a>
+                <a
+                  href="#"
+                  class="toggle is-icon toggle-light"
+                  title="Switch to Light Design."
+                >
+                  <i class="icon tsi tsi-bright"></i>
+                </a>
+              </div>
+
+              <a href="#" class="search-icon has-icon-only is-icon" title="Ara">
+                <i class="tsi tsi-search"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="smart-head smart-head-a smart-head-mobile"
+        id="smart-head-mobile"
+        data-sticky="mid"
+        data-sticky-type="smart"
+        data-sticky-full
+      >
+        <div
+          class="smart-head-row smart-head-mid smart-head-row-3 is-light smart-head-row-full"
+        >
+          <div class="inner wrap">
+            <div class="items items-left">
+              <button
+                class="offcanvas-toggle has-icon"
+                type="button"
+                aria-label="Menu"
+              >
+                <span class="hamburger-icon hamburger-icon-a">
+                  <span class="inner"></span>
+                </span>
+              </button>
+            </div>
+
+            <div class="items items-center">
+              <a
+                href="{% url 'homepage' %}"
+                title="StartupTeknoloji"
+                rel="homepage"
+                class="logo-link ts-logo logo-is-image"
+              >
+                <span>
+                  <img
+                    class="logo-mobile logo-image logo-image-dark"
+                    src="{% static "wp-content/uploads/2022/04/StartupTeknoloji-Monil-Logo-Beyaz.png" %}"
+                    width="300"
+                    height="41"
+                    alt="StartupTeknoloji"
+                  /><img
+                    class="logo-mobile logo-image"
+                    src="{% static "wp-content/uploads/2022/04/StartupTeknoloji-Mobil-Logo-Siyah.png" %}"
+                    width="300"
+                    height="41"
+                    alt="StartupTeknoloji"
+                  />
+                </span>
+              </a>
+            </div>
+
+            <div class="items items-right">
+              <div class="scheme-switcher has-icon-only">
+                <a
+                  href="#"
+                  class="toggle is-icon toggle-dark"
+                  title="Switch to Dark Design - easier on eyes."
+                >
+                  <i class="icon tsi tsi-moon"></i>
+                </a>
+                <a
+                  href="#"
+                  class="toggle is-icon toggle-light"
+                  title="Switch to Light Design."
+                >
+                  <i class="icon tsi tsi-bright"></i>
+                </a>
+              </div>
+
+              <a href="#" class="search-icon has-icon-only is-icon" title="Ara">
+                <i class="tsi tsi-search"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>

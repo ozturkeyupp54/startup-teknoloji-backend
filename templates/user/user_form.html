@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block container %}
+<!-- Bootstrap 5 -->
+<link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+<link rel="stylesheet" href="{% static 'post/style.css' %}" /><div class="container mt-4">
+  <h3>Hemen Kayıt Ol, Girişim Ekosisteminde Yerini Al</h3>
+  <h4>Kayıt olmak için aşağıdaki bilgileri doldur.</h4>
+  <form method="post" >
+    {% csrf_token %} {{ form.as_p }}
+    
+
+    <label class="c-form-group c-checkbox u-gap-bottom">
+      <input
+        type="checkbox"
+        id="user_register_form_terms"
+        name="user_register_form[terms]"
+        required="required"
+        class="c-checkbox__inp"
+        data-validetta="required"
+        name="user-agreement"
+        value="1"
+      />
+      <span class="c-checkbox__mask"></span>
+      <span class="u-gap-left-small"
+        ><a href="#" data-toggle="modal" data-target="#user-agreement"
+          >Üyelik Sözleşmesi</a
+        >
+        ve
+        <a href="#" data-toggle="modal" data-target="#privacy-policy"
+          >Gizlilik Politikası</a
+        >’nı kabul ediyorum</span
+      >
+    </label>
+    <button type="submit"
+      class="c-button c-button--primary c-button--block u-gap-bottom-medium"
+    >
+      Kayıt Ol
+    </button>
+
+    <p class="u-text-center">Zaten Üye misin?</p>
+    <a href="/user/login/" class="c-button c-button--ghost c-button--block"
+      >Hemen Giriş Yap</a
+    >
+  </form>
+</div>
+{% endblock %}

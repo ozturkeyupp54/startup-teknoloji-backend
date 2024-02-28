@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block container %}
+<link rel="stylesheet" href="{% static 'post/style.css' %}" />
+  <h2>Girisim Listesi</h2>
+
+  <div class="mb-3">
+    <a href="{% url 'girisim_create' %}" class="btn btn-primary">Yeni Girişim Oluştur</a>
+  </div>
+
+  <form method="get" action="{% url 'girisim_list' %}">
+    <label for="order">Sırala:</label>
+    <select name="order" id="order">
+      <option value="">Varsayılan Sıralama</option>
+      <option value="alphabetical" {% if request.GET.order == 'alphabetical' %}selected{% endif %}>Alfabetik</option>
+      <option value="createdAt" {% if request.GET.order == 'createdAt' %}selected{% endif %}>Oluşturulma Tarihi</option>
+      <option value="startDate" {% if request.GET.order == 'startDate' %}selected{% endif %}>Başlangıç Tarihi</option>
+    </select>
+    <button type="submit" class="btn btn-secondary">Sırala</button>
+  </form>
+
+  <div class="list-group mt-3">
+    {% for girisim in girisimler %}
+      <a href="{% url 'girisim_detail' girisim.pk %}" class="list-group-item list-group-item-action">
+        {{ girisim.girisim_adi }}
+      </a>
+    {% endfor %}
+  </div>
+
+  <div class="mt-3">
+    {% if girisimler.has_other_pages %}
+      <div class="pagination">
+        <span class="step-links">
+          {% if girisimler.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ girisimler.previous_page_number }}">previous</a>
+          {% endif %}
+
+          <span class="current">
+            Page {{ girisimler.number }} of {{ girisimler.paginator.num_pages }}.
+          </span>
+
+          {% if girisimler.has_next %}
+            <a href="?page={{ girisimler.next_page_number }}">next</a>
+            <a href="?page={{ girisimler.paginator.num_pages }}">last &raquo;</a>
+          {% endif %}
+        </span>
+      </div>
+    {% endif %}
+  </div>
+
+{% endblock %}

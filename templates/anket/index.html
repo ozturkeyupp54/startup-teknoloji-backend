@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block container %}
+<body>
+    <h1>Available Questionnaires</h1>
+    <ul>
+        {% for questionnaire in all_questionnaires %}
+            <li><a href="{% url 'questionnaire_detail' questionnaire.id %}">{{ questionnaire.questionnaire_name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iyzico Django</title>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row" style="margin: 4rem;">
+
+        {{ message }}
+
+    </div>
+</div>
+<div class="container">
+    <div class="row" style="margin: 4rem;">
+    <p>Ödeme Test</p>
+<button> <a href="{%  url 'payment'  %}"> iyzico</a> </button>
+{% comment %} <button> <a href="{% url 'payment' user_id=current_user.id order_id=siparis.id %}">Proceed to Payment</a> </button> {% endcomment %}
+
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<h1>Anket Güncelle</h1>
+<form action="{% url 'anket_update' anket.pk %}" method="post">
+    {% csrf_token %}
+    <p>Başlık:</p>
+    <input type="text" name="baslik" value="{{ anket.baslik }}">
+    <p>Açıklama:</p>
+    <textarea name="aciklama">{{ anket.aciklama }}</textarea>
+    
+    <input type="submit" value="Anketi Güncelle">
+</form>
+{% endblock %}

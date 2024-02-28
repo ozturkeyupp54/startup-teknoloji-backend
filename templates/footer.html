@@ -1,0 +1,113 @@
+<!-- footer.html -->
+{% load static %}
+      <footer class="main-footer cols-gap-lg footer-bold s-dark">
+        
+          {% if advertisement_alt %}
+              <a href="{{ advertisement_alt.kampanyanin_websitesinin_linki }}" target="_blank">
+                  <img class="banner" src="{% url 'alt_reklam_alani:track_image_view' advertisement_alt.id 'advertisement_alt_resmi' %}" alt="{{ advertisement_alt.kampanya_basligi }}"/>
+              </a>
+          {% endif %}
+
+        <div class="lower-footer bold-footer-lower">
+          <div class="ts-contain inner">
+            <div class="spc-social-block spc-social spc-social-b">
+              <a
+                href="https://www.facebook.com/startupteknoloji"
+                class="link service s-facebook"
+                target="_blank"
+                rel="nofollow noopener"
+              >
+                <i class="icon tsi tsi-facebook"></i>
+                <span class="visuallyhidden">Facebook</span>
+              </a>
+
+              <a
+                href="https://twitter.com/startuptek"
+                class="link service s-twitter"
+                target="_blank"
+                rel="nofollow noopener"
+              >
+                <i class="icon tsi tsi-twitter"></i>
+                <span class="visuallyhidden">X (Twitter)</span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/startupteknoloji/"
+                class="link service s-instagram"
+                target="_blank"
+                rel="nofollow noopener"
+              >
+                <i class="icon tsi tsi-instagram"></i>
+                <span class="visuallyhidden">Instagram</span>
+              </a>
+
+              <a
+                href="https://www.youtube.com/channel/UCidxH9WD49L7Ipaett5rGtA"
+                class="link service s-youtube"
+                target="_blank"
+                rel="nofollow noopener"
+              >
+                <i class="icon tsi tsi-youtube-play"></i>
+                <span class="visuallyhidden">YouTube</span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/company/startupteknoloji/"
+                class="link service s-linkedin"
+                target="_blank"
+                rel="nofollow noopener"
+              >
+                <i class="icon tsi tsi-linkedin"></i>
+                <span class="visuallyhidden">LinkedIn</span>
+              </a>
+            </div>
+
+            <div class="links">
+              <div class="menu-ust-menu-turkce-container">
+                <ul id="menu-ust-menu-turkce-1" class="menu">
+                  <li
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28207"
+                  >
+                    <a href="{% url 'navbar-top/girisim_ve_yatirim' %}"
+                      >Girişiminizi Tanıtın</a
+                    >
+                  </li>
+                  <li
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28208"
+                  >
+                    <a href="{% url 'navbar-top/reklam_ve_sponsorluk' %}"
+                      >Reklam ve Sponsorluk</a
+                    >
+                  </li>
+                  <li
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33618"
+                  >
+                    <a
+                     href="{% url 'navbar-top/kariyer' %}"
+                      >Kariyer</a
+                    >
+                  </li>
+                  <li
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28209"
+                  >
+                    <a href="{% url 'navbar-top/kunye' %}">Künye</a>
+                  </li>
+                  <li
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29461"
+                  >
+                    <a href="{% url 'navbar-top/iletisim' %}"
+                      >İletişim</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="copyright">
+              2024 StartupTeknoloji Tüm Hakları Saklıdır<br />
+              2024 StartupTeknoloji All Rights Reserved<br />
+              <a>Bu site lamb.ai tarafından oluşturulmuştur.</a>
+            </div>
+          </div>
+        </div>
+      </footer>

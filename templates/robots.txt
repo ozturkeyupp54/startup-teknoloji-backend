@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /django-check-seo/
+
+Sitemap: https://www.startupteknoloji.com/sitemap.xml

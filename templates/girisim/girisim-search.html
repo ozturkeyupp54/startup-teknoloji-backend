@@ -1,0 +1,24 @@
+{% extends 'base.html' %}{%load static%}
+{% block container %}
+<link rel="stylesheet" href="{% static 'post/style.css' %}"/>
+  <h1>Girisim Search</h1>
+
+  <form method="get" action="{% url 'girisim:girisim_search' %}">
+    <input type="text" name="q" placeholder="Search...">
+    <button type="submit">Search</button>
+  </form>
+
+  {% for girisim in girisimler %}
+    <!-- Display search results as needed -->
+    <h2>{{ girisim.girisim_adi }}</h2>
+    <p>{{ girisim.girisim_ozeti }}</p>
+    <!-- Add more fields as needed -->
+  {% endfor %}
+
+  {% if not girisimler %}
+    <p>No results found.</p>
+  {% endif %}
+
+  {% include 'pagination.html' %}
+
+{% endblock container %}

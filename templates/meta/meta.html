@@ -1,0 +1,83 @@
+{% load meta %} {% block meta_tags %}
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Title Tag -->
+{% if request.path == "/" %}
+<title>StartupTeknoloji - Girişimciliğe Dair Her Şey Burada!</title>
+{% else %}
+<title>
+  StartupTeknoloji | {% with name=request.path|slice:"13:" %} {{name|title}}
+  {%endwith%} | Girişimciliğe Dair Her Şey Burada!
+</title>
+{% endif %}
+<meta name='robots' content='max-image-preview:large' />
+<link rel="alternate" href="https://startupteknoloji.com/" hreflang="tr" />
+<link rel="alternate" href="https://startupteknoloji.com/en/homepage/" hreflang="en" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VW3JVZXYQ5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VW3JVZXYQ5');
+</script>
+<!-- End Google Tag Manager -->
+<!-- Description Meta Tag -->
+<meta name="description" content="{% block description %}{% if post.content %}
+{{ post.content|slice:":150" }} {% endif %}{% endblock description %}" />
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+{% comment %} {% if request.path == "/" %}
+<link rel="canonical" href="https://startupteknoloji.com/"/>{% else %}
+<link rel="canonical" href="https://startupteknoloji.com{%url 'post_detail' slug=post.slug%}"/>{% endif %} {% endcomment %}
+<!-- OpenGraph/Facebook/Twitter Meta Tags -->
+<meta property="og:locale" content="tr_TR" />
+<meta property="og:type" content="website" />
+<meta
+  property="og:title"
+  content="{% block og_title %}{{ post.title }}{% endblock og_title %}"
+/>
+<meta property="og:description" content="{%block og_description%}{{post.content|slice:":140"}}{%endblock og_description%}"/>
+<meta
+  property="og:url"
+  content="{% block og_url %}{{ post.link }}{% endblock og_url %}"
+/>
+<meta property="og:site_name" content="StartupTeknoloji" />
+<meta
+  property="article:publisher"
+  content="https://www.facebook.com/startupteknoloji"
+/>
+<meta
+  property="article:section"
+  content="{%block og_section%}{{post.categories}}{%endblock og_section%}"
+/>
+<meta
+  property="article:published_time"
+  content="{% block og_published_time %}{{post.pub_date}}{%endblock og_published_time%}"
+/>
+<meta
+  property="article:modified_time"
+  content="{% block og_modified_time %}{{post.updated_at}}{%endblock og_modified_time%}"
+/>
+<meta
+  property="og:updated_time"
+  content="{% block og_updated_time %}{{post.updated_at}}{%endblock og_updated_time%}"
+/>
+<meta property="og:image" content="{% block og_image%}{%endblock og_image%}" />
+<meta
+  property="og:image:secure_url"
+  content="{% block og_secure_url %}{{post.link}}{%endblock og_secure_url%}"
+/>
+<meta property="og:image:width" content="1024" />
+<meta property="og:image:height" content="512" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:description" content="{%block og_twitter_description%}{{post.content|slice:":140"}}{%endblock og_twitter_description%}" />
+<meta
+  property="twitter:title"
+  content="{%block og_twitter_title%}{{post.title}}{%endblock og_twitter_title%}"
+/>
+<meta property="twitter:site_name" content="StartupTeknoloji" />
+<meta name="twitter:creator" content="@startuptek" />
+{% endblock meta_tags %}

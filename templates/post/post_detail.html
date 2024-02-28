@@ -1,0 +1,560 @@
+{%extends 'base.html'%} {%load static %} {%block container%}
+
+
+
+      <div class="main ts-contain cf right-sidebar">
+        <div class="post-wrap">
+          <section class="the-post-header post-cover">
+            <div class="featured">
+              {% if post.haber_baslik_resmi %}
+              <a
+                href="{% url 'post:post_detail' slug=post.slug %}"
+                class="image-link media-ratio ar-bunyad-main-full"
+                title="{{post.title}}"
+                ><img
+                  loading="lazy"
+                  width="1200"
+                  height="574"
+                  src="{{ post.haber_baslik_resmi.url }}"
+                  alt="{{post.title}}"
+                  class="attachment-large size-large lazyload wp-post-image"
+                  sizes="(max-width: 1200px) 100vw, 1200px"
+                  title="Intel ve Microsoft Büyük Bir İşbirliği Duyurdu"
+                  decoding="async"
+                  data-src="{{ post.haber_baslik_resmi.url }}"
+              /></a>{% endif %}
+
+              <div class="overlay s-dark">
+                <div
+                  class="post-meta post-meta-a post-meta-left post-meta-single has-below"
+                >
+                  <div class="post-meta-items meta-above">
+                    <span class="meta-item cat-labels">
+                       {% if post.category %}
+                      <a
+                        href="{{ post.category.url }}"
+                        class="category term-color-546"
+                        rel="category"
+                        >{{ post.category.name }}</a
+                      > {% endif %}
+                    </span>
+                  </div>
+                   {% if post.title %}
+                  <h1 class="is-title post-title">
+                    {{ post.title }}
+                  </h1>{% endif %} {% if post.creator %} {% if post.author %}
+                  <div class="post-meta-items meta-below has-author-img">
+                    <span class="meta-item post-author has-img"
+                      ><img
+                        data-del="avatar"
+                        alt="{{post.creator}}"
+                        src="{{ post.author.profile_picture.url }}"
+                        class="avatar pp-user-avatar avatar-32 photo"
+                        height="32"
+                        width="32"
+                      /><span class="by">Yazar:</span>
+                      <a
+                        href="{% url 'author:author_detail' slug=post.author.slug %}"
+                  title="{{post.creator}} tarafından yazılan yazılar"
+                  rel="author"
+                  >{{post.creator}}</a
+                      ></span
+                    >{% endif %}{% endif %}<span class="meta-item date"
+                      ><time
+                        class="post-date"
+                        datetime="{{post.post_date|date:"d F Y"}}"
+                        >{{post.post_date|date:"d F Y"}}</time
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="ts-row">
+            <div class="col-8 main-content">
+              <div class="the-post s-post-cover">
+                <article
+                  id="post-113731"
+                  class="post-113731 post type-post status-publish format-standard has-post-thumbnail category-marka-is-birlikleri category-teknoloji"
+                >
+                  <div class="post-content-wrap">
+                    <div class="post-content cf entry-content content-spacious">
+                      {% if post.content %}
+                <p>{{ post.content|safe }}</p>
+                {% endif %}
+
+                     
+
+                      <p>
+                        İlginizi çekebilir:
+                        <a
+                          href="https://startupteknoloji.com/microsoft-windows-11e-yapay-zeka-entegrasyonu-getiriyor"
+                          >Microsoft, Windows 11’e Yapay Zeka Entegrasyonu
+                          Getiriyor</a
+                        >
+                      </p>
+
+                      
+                    </div>
+                  </div>
+                </article>
+
+                          <section class="navigate-posts">
+            {% if posts %} {% for post in posts|slice:"0:1" %}
+            <div class="previous">
+              <span class="main-color title"
+                ><i class="tsi tsi-chevron-left"></i> Önceki Yazı</span
+              ><span class="link">
+                {% if previous_post %}
+                <a href="{% url 'post:post_detail' slug=previous_post.slug %}">
+                  <p>{{ previous_post.title }}</p>
+                </a>
+                {% endif %}
+              </span>
+            </div>
+            <div class="next">
+              <span class="main-color title"
+                >Sonraki Yazı <i class="tsi tsi-chevron-right"></i></span
+              ><span class="link"
+                >{% if next_post %}
+                <a href="{% url 'post:post_detail' slug=next_post.slug %}">
+                  <p>{{ next_post.title }}</p>
+                </a>
+                {% endif %}</span
+              >
+            </div>
+            {% endfor %} {% endif %}
+          </section>
+
+
+        <!--- Author İnfo Section -->
+          <div class="author-box">
+            <section class="author-info">
+              {% if post.author %} {% if post.author.profile_picture %}
+              <img
+                data-del="avatar"
+                alt="{{ post.creator }}"
+                src="{{ post.author.profile_picture.url }}"
+                class="avatar pp-user-avatar avatar-95 photo"
+                height="95"
+                width="95"
+                alt="author-image"
+              />
+              {% endif %}
+              <div class="description">
+                <a
+                  href="{% url 'author:author_detail' slug=post.author.slug %}"
+                  title="{{post.creator}} tarafından yazılan yazılar"
+                  rel="author"
+                  >{{ post.creator }}</a
+                >
+                <ul class="social-icons">
+                  <li>
+                    <a
+                      href="{{post.author.yazarin_twitter_x_adresi_linki}}"
+                      target="_blank"
+                      class="icon tsi tsi-twitter"
+                      title="X (Twitter)"
+                    >
+                      <span class="visuallyhidden">X (Twitter)</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="{{post.author.yazarin_instagram_adresi_linki}}"
+                      target="_blank"
+                      class="icon tsi tsi-instagram"
+                      title="Instagram"
+                    >
+                      <span class="visuallyhidden">Instagram</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="{{post.author.yazarin_linkedin_adresi_linki}}"
+                      target="_blank"
+                      class="icon tsi tsi-linkedin"
+                      title="LinkedIn"
+                      ><span class="visuallyhidden">LinkedIn</span></a
+                    >
+                  </li>
+                </ul>
+                <p class="bio">{{ post.author.bio }}</p>
+              </div>
+              {%endif%}
+            </section>
+          </div>
+
+   <!-- İlgili İçerikler Output -->
+
+          <section class="related-posts">
+            <div class="block-head block-head-ac block-head-c is-left">
+              <h4 class="heading">İlgili İçerikler</h4>
+            </div>
+
+            <section class="block-wrap block-grid mb-none">
+              <div class="block-content">
+                <div
+                  class="loop loop-grid loop-grid-sm grid grid-2 md:grid-2 xs:grid-1"
+                >
+                  <!-- Iterate over recent_posts -->
+                  {% for recent_post in recent_posts %}
+                  <article class="l-post grid-post grid-sm-post">
+                    <div class="media">
+                      {% if recent_post.haber_baslik_resmi %}
+                      <a
+                        href="{% url 'post:post_detail' slug=recent_post.slug %}"
+                        class="image-link media-ratio ratio-16-9"
+                        title="{{recent_post.title}}"
+                      >
+                        <img
+                          src="{{ recent_post.haber_baslik_resmi.url }}"
+                          alt="{{recent_post.title}}"
+                          class="img bg-cover wp-post-image attachment-bunyad-medium size-bunyad-medium"
+                          loading="lazy"
+                          width="1200"
+                          title="{{recent_post.title}}"
+                          height="574"
+                          decoding="async"
+                          data-sizes="(max-width: 377px) 100vw, 377px"
+                          role="img"
+                        />
+                      </a>
+                      {% endif %}
+                    </div>
+
+                    <div class="content">
+                      <div class="post-meta post-meta-a has-below">
+                        <div class="post-meta-items meta-above">
+                          <span class="meta-item post-cat">
+                            {% if recent_post.category %}
+                            <a
+                              href="{{ recent_post.category.url }}"
+                              class="category term-color-546"
+                              rel="category"
+                              >{{ recent_post.category.name }}</a
+                            >
+                            {% endif %}
+                          </span>
+                        </div>
+                        {% if recent_post.title %}
+                        <h2 class="is-title post-title">
+                          {% endif %}
+                          <a href="{% url 'post:post_detail' slug=recent_post.slug %}"
+                            >{{ recent_post.title }}</a
+                          >
+                        </h2>
+                        <div class="post-meta-items meta-below">
+                          <span class="meta-item date"
+                            ><span class="date-link"
+                              ><time class="post-date"
+                                >{{recent_post.post_date|date:"d F Y"}}</time
+                              ></span
+                            ></span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                  {%endfor%}
+                </div>
+              </div>
+            </section>
+          </section>
+
+
+                <!--- Comments Section -->
+                <div class="comments">
+                  {%if comments %}
+                  <div>
+                    {%for comment in comments %}
+                    <img
+                      data-del="avatar"
+                      alt="{{ comment.yorum_birakanin_ismi }}"
+                      src="{% static 'default/commenter_avatar-96x96.png' %}"
+                      height="32"
+                      width="32"
+                      alt="author-image"
+                    />
+                    <p>
+                      {{comment.yorum_birakanin_ismi}} on {{comment.created_at}}
+                      <br />{{comment.content|safe}} <br />
+                      <span><i>Yorumunuz onay için beklemektedir.</i></span>
+                    </p>
+                    <br />
+                    {%endfor%}
+                  </div>
+                  {%endif%}
+                  
+                  <div class="comment">
+                    <div>
+                      <form
+                        method="post"
+                        action="{% url 'comment:comment_create' post_id=post.id %}"
+                      >
+                        {% csrf_token %}
+                        <h3>Yorum Bırak</h3>
+                        {% if success_message %}
+                        <div class="alert alert-success">Yorumunuz başarıyla oluşturuldu! {{ success_message }}  </div>
+                        {% endif %}
+                        <textarea
+                          id="id_content"
+                          name="content"
+                          cols="50"
+                          rows="10"
+                          placeholder="Yorumunuzu buraya yazabilirsiniz*"
+                        >
+                        </textarea>
+                        <div class="form-inputs">
+                          <input
+                            id="id_yorum_birakanin_ismi"
+                            name="yorum_birakanin_ismi"
+                            type="text"
+                            placeholder="İsim*"
+                          />
+                          <input
+                            id="id_yorum_birakanin_eposta_adresi"
+                            name="yorum_birakanin_eposta_adresi"
+                            type="email"
+                            placeholder="E-posta*"
+                          />
+                        </div>
+                        <div>
+                          <input
+                            type="checkbox"
+                            name="remember"
+                            id="remember"
+                            checked
+                            required
+                            disabled
+                          />
+                          <label for="remember">
+                            Adımın yorumlar alanında görünmesini kabul
+                            ediyorum.</label
+                          >
+                        </div>
+                        <span><button type="submit">Yorum Yap</button></span>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                {% comment %} <div class="comments">
+                  <div class="ts-comments-show">
+                    <a href="#" class="ts-button ts-button-b"> Yorum Yap </a>
+                  </div>
+                  <div id="comments" class="comments-area ts-comments-hidden">
+                    <div id="respond" class="comment-respond">
+                      <h3 id="reply-title" class="comment-reply-title">
+                        <span class="heading">Yorum Bırak</span>
+                        <small
+                          ><a
+                            rel="nofollow"
+                            id="cancel-comment-reply-link"
+                            href="/intel-ve-microsoft-buyuk-bir-isbirligi-duyurdu/#respond"
+                            style="display: none"
+                            >Cancel Reply</a
+                          ></small
+                        >
+                      </h3>
+                      <form
+                        action="https://startupteknoloji.com/wp-comments-post.php"
+                        method="post"
+                        id="commentform"
+                        class="comment-form"
+                      >
+                        <p>
+                          <textarea
+                            name="comment"
+                            id="comment"
+                            cols="45"
+                            rows="8"
+                            aria-required="true"
+                            placeholder="Yorumun"
+                            maxlength="65525"
+                            required="required"
+                          ></textarea>
+                        </p>
+                        <p class="form-field comment-form-author">
+                          <input
+                            id="author"
+                            name="author"
+                            type="text"
+                            placeholder="İsim *"
+                            value=""
+                            size="30"
+                            maxlength="245"
+                            required="required"
+                          />
+                        </p>
+                        <p class="form-field comment-form-email">
+                          <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            placeholder="E-posta *"
+                            value=""
+                            size="30"
+                            maxlength="100"
+                            required="required"
+                          />
+                        </p>
+
+                        <p class="comment-form-cookies-consent">
+                          <input
+                            id="wp-comment-cookies-consent"
+                            name="wp-comment-cookies-consent"
+                            type="checkbox"
+                            value="yes"
+                          />
+                          <label for="wp-comment-cookies-consent"
+                            >Adımı, e-postamı bir sonraki yorumum için bu
+                            tarayıcıya kaydet.
+                          </label>
+                        </p>
+                        <p class="form-submit">
+                          <input
+                            name="submit"
+                            type="submit"
+                            id="comment-submit"
+                            class="submit"
+                            value="Yorum Yap"
+                          />
+                          <input
+                            type="hidden"
+                            name="comment_post_ID"
+                            value="113731"
+                            id="comment_post_ID"
+                          />
+                          <input
+                            type="hidden"
+                            name="comment_parent"
+                            id="comment_parent"
+                            value="0"
+                          />
+                        </p>
+                        <p style="display: none">
+                          <input
+                            type="hidden"
+                            id="akismet_comment_nonce"
+                            name="akismet_comment_nonce"
+                            value="e142e8c905"
+                          />
+                        </p>
+                        <p
+                          style="display: none !important"
+                          class="akismet-fields-container"
+                          data-prefix="ak_"
+                        >
+                          <label
+                            >&#916;<textarea
+                              name="ak_hp_textarea"
+                              cols="45"
+                              rows="8"
+                              maxlength="100"
+                            ></textarea></label
+                          ><input
+                            type="hidden"
+                            id="ak_js_1"
+                            name="ak_js"
+                            value="63"
+                          />
+                          <script>
+                            document
+                              .getElementById("ak_js_1")
+                              .setAttribute("value", new Date().getTime());
+                          </script>
+                        </p>
+                      </form>
+                    </div>
+                    <!-- #respond -->
+                  </div>
+                  <!-- #comments -->
+                </div> {% endcomment %}
+
+
+              </div>
+            </div>
+
+            <aside class="col-4 main-sidebar has-sep">
+              <div class="inner">
+                <div
+                  id="smartmag-block-posts-small-5"
+                  class="widget ts-block-widget smartmag-widget-posts-small"
+                >
+                  <div class="block">
+                    <section
+                      class="block-wrap block-posts-small block-sc mb-none"
+                      data-id="2"
+                    >
+                      <div
+                        class="widget-title block-head block-head-ac block-head block-head-ac block-head-e block-head-e2 is-left has-style"
+                      >
+                        <h5 class="heading">Girişimcilik Gündemi</h5>
+                        {% for related_post in related_posts %}
+
+                      </div>
+                      <div class="block-content">
+                        <div
+                          class="loop loop-small loop-small-a loop-sep loop-small-sep grid grid-1 md:grid-1 sm:grid-1 xs:grid-1"
+                        >
+                          <article
+                            class="l-post small-post small-a-post m-pos-left"
+                          >
+                            <div class="media">
+                              {% if related_post.haber_baslik_resmi %}
+                              <a
+                                href="{% url 'post:post_detail' slug=related_post.slug %}"
+                                class="image-link media-ratio ar-bunyad-thumb"
+                                title="Komünite,4 Milyon Dolar Değerleme Üzerinden Yatırım Aldı"
+                                ><span
+                                  data-bgsrc="{{ related_post.haber_baslik_resmi.url }}"
+                                  class="img bg-cover wp-post-image attachment-medium size-medium lazyload"
+                                  data-bgset="{{ related_post.haber_baslik_resmi.url }}"
+                                  data-sizes="(max-width: 110px) 100vw, 110px"
+                                  
+                                ></span
+                              ></a>{% endif %}
+                            </div>
+
+                            <div class="content">
+                              <div
+                                class="post-meta post-meta-a post-meta-left has-below"
+                              >
+                                <h4 class="is-title post-title">
+                                  <a
+                                     href="{% url 'post:post_detail' slug=related_post.slug %}"
+                                    >{{ related_post.title }}</a
+                                  >
+                                </h4>
+                                <div class="post-meta-items meta-below">
+                                  <span class="meta-item date"
+                                    ><span class="date-link"
+                                      ><time
+                                        class="post-date"
+                                        datetime="{{post.post_date|date:"d F Y"}}"
+                                        >{{post.post_date|date:"d F Y"}}</time
+                                      ></span
+                                    ></span
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </article>
+                          <br>
+                          {% endfor %}
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+        <!-- .post-wrap -->
+      </div>
+
+{%endblock%}

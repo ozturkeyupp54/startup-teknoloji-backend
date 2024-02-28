@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<h1>Yeni Soru Oluştur</h1>
+<form action="{% url 'soru_create' anket.pk %}" method="post">
+    {% csrf_token %}
+    <p>Soru:</p>
+    <input type="text" name="icerik">
+    <p>Soru Tipi:</p>
+    <select name="question_type">
+        <option value="MULTIPLE_CHOICE">Çoktan Seçmeli</option>
+        <option value="YES_NO">Evet/Hayır</option>
+        <option value="OPEN_ENDED">Açık Uçlu</option>
+    </select>
+    <input type="submit" value="Soruyu Oluştur">
+</form>
+{% endblock %}

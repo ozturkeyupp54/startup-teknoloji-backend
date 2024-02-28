@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+    <title>E-postanızı Doğrulayın! - Verify Your Email!</title>
+</head>
+
+<body>
+    <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:22px;text-align:left;color:#555;">
+        <p>Merhaba {{ user.full_name }},</p>
+        <p>E-postanızı doğrulamanız için aşağıdaki bağlantıya tıklayın:</p>
+        <p><a href="{{ verification_url }}" class="btn btn-primary">E-postayı Doğrula</a></p>
+        <p>İletişim e-posta adresimiz: iletisim@startupteknoloji.com</p>
+        <p>Startup Teknoloji Ekibi</p>
+    </div>
+    <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:22px;text-align:left;color:#555;">
+        <p>Hello {{ user.full_name }}!</p><br></br>
+        <p>Thank you for signing up for StartupTeknoloji. We're really happy to have you! Click the link below to login to your account:</p><br>
+        <p>Startup Teknoloji Team</p>
+    </div>
+</body>
+</html>
+

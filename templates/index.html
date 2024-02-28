@@ -1,0 +1,603 @@
+{% extends 'base.html' %} {% load static %}
+{% block container %}
+
+      <div class="main-full">
+        <div
+          
+          class="page-content post-6 page type-page status-publish has-post-thumbnail"
+        >
+          <div
+            data-elementor-type="wp-page"
+            data-elementor-id="6"
+            class="elementor elementor-6"
+            data-elementor-post-type="page"
+          >
+            <section
+              class="has-el-gap el-gap-default elementor-section elementor-top-section elementor-element elementor-element-7bb5416 elementor-section-full_width elementor-section-height-default elementor-section-height-default"
+              data-id="7bb5416"
+              data-element_type="section"
+            >
+              <div class="elementor-container elementor-column-gap-no">
+                <div
+                  class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3d18b85"
+                  data-id="3d18b85"
+                  data-element_type="column"
+                >
+                  <div
+                    class="elementor-widget-wrap elementor-element-populated"
+                  >
+                    <div
+                      class="elementor-element elementor-element-822f178 elementor-widget elementor-widget-smartmag-featgrid"
+                      data-id="822f178"
+                      data-element_type="widget"
+                      data-widget_type="smartmag-featgrid.default"
+                    >
+                      <div class="elementor-widget-container">
+                        <section
+                          class="block-wrap block-feat-grid block-sc mb-none"
+                          data-id="1"
+                        >
+                          <div class="block-content">
+                            <section
+                              class="feat-grid feat-grid-b static feat-grid-full feat-grid-b-full feat-grid-height"
+                            >
+                              <div class="slides" data-parallax>
+                                <div class="items-wrap slide-wrap">
+                                  {% for post in posts %}{% if forloop.counter0 < 1 %}
+                                  <div class="item item-large item-main item-1 pos-bot">
+                                    <article
+                                      class="l-post grid-overlay grid-overlay-a"
+                                    >
+                                      <div class="media">
+                                        <a
+                                         href="{% url 'post:post_detail' slug=post.slug %}"
+                                          class="image-link"
+                                          title="{{ post.title }}"
+                                          ><span
+                                            data-bgsrc="{{ post.haber_baslik_resmi.url }}"
+                                            class="img bg-cover wp-post-image attachment-large size-large lazyload"
+                                            role="img"
+                                            aria-label="{{ post.slug }}"
+                                            data-ratio="1.5"
+                                          ></span
+                                        ></a>
+                                      </div>
+
+                                      <div class="content-wrap">
+                                        <div class="content">
+                                          <div
+                                            class="post-meta post-meta-a meta-contrast has-below"
+                                          >
+                                            <div
+                                              class="post-meta-items meta-above"
+                                            >
+                                              <span
+                                                class="meta-item cat-labels"
+                                              >{% if post.category %}
+                                                <a
+                                                  href="{% url 'category_detail' slug=post.category.slug %}"
+                                                  class="category term-color-546"
+                                                  rel="category"
+                                                  >{{ post.category.name }}</a
+                                                >{% endif %}
+                                              </span>
+                                            </div>
+                                            <h2 class="is-title post-title">
+                                              <a
+                                                href="{%url 'post:post_detail' slug=post.slug%}"
+                                                >{{ post.title }}</a
+                                              >
+                                            </h2>
+                                            <div
+                                              class="post-meta-items meta-below"
+                                            >
+                                              <span
+                                                class="meta-item post-author"
+                                                >
+                                                {% if post.creator %}
+                                                {% if post.author %}
+                                                <a
+                                                  href="{% url 'author:author_detail' slug=post.author.slug %}"
+                                                  title="{{ post.creator }} tarafından yazılan yazılar"
+                                                  rel="author"
+                                                  >{{ post.creator }}</a
+                                                >
+                                                {%endif%}
+                                                {%endif%}
+                                                </span
+                                              >
+                                              <span class="meta-item date"
+                                                ><span class="date-link"
+                                                  ><time
+                                                    class="post-date"
+                                                    datetime="{{ post.post_date|date:"d F Y" }}"
+                                                    >{{ post.post_date|date:"d F Y" }}</time
+                                                  ></span
+                                                ></span
+                                              >
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </article>
+                                  </div>
+                             
+                                  {% elif forloop.counter0 == 1 %}
+                                  <div class="item item-medium item-2 pos-bot">
+                                    <article
+                                      class="l-post grid-overlay grid-overlay-a"
+                                    >
+                                      <div class="media">
+                                        <a
+                                           href="{% url 'post:post_detail' slug=post.slug %}"
+                                          class="image-link"
+                                          title="{{ post.title }}"
+                                          ><span
+                                            data-bgsrc="{{ post.haber_baslik_resmi.url }}"
+                                            class="img bg-cover wp-post-image attachment-bunyad-768 size-bunyad-768 lazyload"
+                                            data-bgset="{{ post.haber_baslik_resmi.url }}"
+                                            data-sizes="(max-width: 768px) 50vw, 550px"
+                                            data-ratio="1.7777777777778"
+                                          ></span
+                                        ></a>
+                                      </div>
+
+                                      <div class="content-wrap">
+                                        <div class="content">
+                                          <div
+                                            class="post-meta post-meta-a meta-contrast has-below"
+                                          >
+                                            <div
+                                              class="post-meta-items meta-above"
+                                            >
+                                              <span
+                                                class="meta-item cat-labels"
+                                              > {% if post.category %}
+                                                <a
+                                                  href="{% url 'category_detail' slug=post.category.slug %}"
+                                                  class="category term-color-639"
+                                                  rel="category"
+                                                  >{{ post.category.name }}</a
+                                                >{% endif %}
+                                              </span>
+                                            </div>
+                                            <h2 class="is-title post-title">
+                                              <a href="{%url 'post:post_detail' slug=post.slug%}">{{ post.title }}</a
+                                              >
+                                            </h2>
+                                            <div
+                                              class="post-meta-items meta-below"
+                                            >
+                                              <span
+                                                class="meta-item post-author"
+                                                >
+                                                {% if post.creator %}
+                                                {% if post.author %}                                                
+                                                <a
+                                                  href="{% url 'author:author_detail' slug=post.author.slug %}"
+                                                  title="{{ post.creator }} tarafından yazılan yazılar"
+                                                  rel="author"
+                                                  >{{ post.creator }}</a
+                                                >
+                                                {% endif %}  {% endif %}  
+                                                
+                                                </span
+                                              >
+                                              <span class="meta-item date"
+                                                ><span class="date-link"
+                                                  ><time
+                                                    class="post-date"
+                                                    datetime="{{ post.post_date|date:"d F Y" }}"
+                                                    >{{ post.post_date|date:"d F Y" }}</time
+                                                  ></span
+                                                ></span
+                                              >
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </article>
+                                  </div>
+                                  
+                                {% elif forloop.counter0 == 2 %}
+                                  <div class="item item-medium item-3 pos-bot">
+                                    <article
+                                      class="l-post grid-overlay grid-overlay-a"
+                                    >
+                                      <div class="media">
+                                        <a
+                                          href="{% url 'post:post_detail' slug=post.slug %}"
+                                          class="image-link"
+                                          title="{{ post.title }}"
+                                          ><span
+                                            data-bgsrc="{{ post.haber_baslik_resmi.url }}"
+                                            class="img bg-cover wp-post-image attachment-bunyad-768 size-bunyad-768 lazyload"
+                                            data-bgset="{{ post.haber_baslik_resmi.url }}"
+                                            data-sizes="(max-width: 768px) 50vw, 550px"
+                                            data-ratio="1.5595075239398"
+                                          ></span
+                                        ></a>
+                                      </div>
+
+                                      <div class="content-wrap">
+                                        <div class="content">
+                                          <div
+                                            class="post-meta post-meta-a meta-contrast has-below"
+                                          >
+                                            <div
+                                              class="post-meta-items meta-above"
+                                            >
+                                              <span
+                                                class="meta-item cat-labels"
+                                              >
+                                                <a
+                                                  href="{% url 'category_detail' slug=post.category.slug %}"
+                                                  class="category term-color-1369"
+                                                  rel="category"
+                                                  >{{ post.category.name }}</a
+                                                >
+                                              </span>
+                                            </div>
+                                            <h2 class="is-title post-title"> {% if post.title %}
+                                              <a
+                                                href="{% url 'post:post_detail' slug=post.slug %}"
+                                                >{{ post.title }}</a
+                                              > {% endif %}
+                                            </h2>
+                                            <div
+                                              class="post-meta-items meta-below"
+                                            >
+                                              <span
+                                                class="meta-item post-author"
+                                                >
+                                                {% if post.creator %}
+                                                {% if post.author %}
+                                                <a
+                                                  href="{% url 'author:author_detail' slug=post.author.slug %}"
+                                                  title="{{ post.creator }} tarafından yazılan yazılar"
+                                                  rel="author"
+                                                  >{{ post.creator }}</a
+                                                >
+                                                {%endif%}
+                                                {%endif%}
+                                              </span>
+                                              <span class="meta-item date"
+                                                ><span class="date-link"
+                                                  ><time
+                                                    class="post-date"
+                                                    datetime="{{ post.post_date|date:"d F Y" }}"
+                                                    >{{ post.post_date|date:"d F Y" }}</time
+                                                  ></span
+                                                ></span
+                                              >
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </article>
+                                  </div>
+                                  {%endif%}
+                                  {%endfor%}
+                                </div>
+                              </div>
+                            </section>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section
+              class="has-el-gap el-gap-default elementor-section elementor-top-section elementor-element elementor-element-53285f9 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+              data-id="53285f9"
+              data-element_type="section"
+            >
+              <div class="elementor-container elementor-column-gap-no">
+                <div
+                  class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-f7d2daf main-content"
+                  data-id="f7d2daf"
+                  data-element_type="column"
+                >
+                  <div
+                    class="elementor-widget-wrap elementor-element-populated"
+                  >
+                    <div
+                      class="elementor-element elementor-element-c44e4d2 elementor-widget elementor-widget-smartmag-postslist"
+                      data-id="c44e4d2"
+                      data-element_type="widget"
+                      data-widget_type="smartmag-postslist.default"
+                    >
+                      <div class="elementor-widget-container">
+                        <section
+                          class="block-wrap block-posts-list block-sc"
+                          data-id="2"
+                          data-block='{"id":"posts-list","props":{"cat_labels":"","cat_labels_pos":"bot-left","reviews":"radial","post_formats_pos":"center","load_more_style":"a","meta_cat_style":"labels","media_style_shadow":0,"meta_above":["cat"],"meta_below":["author","date"],"media_ratio":"16-9","media_ratio_custom":"","media_width":"29.94923858","read_more":"none","container_width":66,"heading":"Latest","posts":20,"excerpts":"","heading_type":"none","heading_colors":"force","pagination":"1","columns":"1","grid_on_sm":"1","pagination_links":null,"query_type":"custom","sort_days":null,"is_sc_call":true,"meta_items_default":true}}'
+                        >
+                          <div class="block-content">
+                            <div
+                              class="loop loop-list loop-sep loop-list-sep grid grid-1 md:grid-1 sm:grid-1"
+                            >
+                            {% for post in posts|slice:"3:" %}
+                              <article
+                                class="l-post list-post grid-on-sm m-pos-left"
+                              >
+                                <div class="media">
+                                  {% if post.haber_baslik_resmi %}
+                                  <a
+                                    href="{% url 'post:post_detail' slug=post.slug %}"
+                                    class="image-link media-ratio ratio-16-9"
+                                    title="{{ post.title }}"
+                                    ><span
+                                      data-bgsrc="{{ post.haber_baslik_resmi.url }}"
+                                      class="img bg-cover wp-post-image attachment-medium size-medium lazyload"
+                                      data-bgset="{{ post.haber_baslik_resmi.url }}"
+                                      data-sizes="(max-width: 229px) 100vw, 229px"
+                                    ></span
+                                  ></a>{%endif%}
+                                </div>
+
+                                <div class="content">
+                                  <div class="post-meta post-meta-a has-below">
+                                    <div class="post-meta-items meta-above">
+                                      <span class="meta-item cat-labels">
+                                        {% if post.category %}
+                                        <a
+                                          href="{% url 'category_detail' slug=post.category.slug %}"
+                                          class="category term-color-8858"
+                                          rel="category"
+                                          >{{ post.category.name }}</a
+                                        >{%endif%}
+                                      </span>
+                                    </div>
+                                    <h2 class="is-title post-title">
+                                      <a
+                                        href="{% url 'post:post_detail' slug=post.slug %}"
+                                        >{{ post.title }}</a
+                                      >
+                                    </h2>
+                                    <div class="post-meta-items meta-below">
+                                      <span class="meta-item post-author"
+                                        ><span class="by">Yazar:</span>
+                                        {% if post.creator %}
+                                        {% if post.author %}
+                                        <a
+                                          href="{% url 'author:author_detail' slug=post.author.slug %}"
+                                          title="{{ post.creator }} tarafından yazılan yazılar"
+                                          rel="author"
+                                          >{{ post.creator }}</a
+                                        ></span
+                                      >
+                                      <span class="meta-item date"
+                                        ><span class="date-link"
+                                          ><time
+                                            class="post-date"
+                                            datetime="{{ post.post_date|date:"d F Y" }}"
+                                            >{{ post.post_date|date:"d F Y" }}</time
+                                          ></span
+                                        ></span
+                                      > {%endif%} {%endif%}
+                                    </div>
+                                  </div>
+                                </div>
+                              </article>
+                            {% endfor %}
+
+                          <nav class="main-pagination pagination-numbers" data-type="numbers-ajax">{% if posts.has_previous %}
+                            <a class="page-numbers" href="?page=1" aria-label="İlk">
+                                1
+                            </a>
+                            <a class="page-numbers" href="?page={{ posts.previous_page_number }}" aria-label="Önceki">
+                                {{ posts.previous_page_number }}
+                            </a>{% endif %}<span aria-current="page" class="page-numbers current">{{ posts.number }}</span>{% if posts.has_next %}
+                            <a class="page-numbers" href="?page={{ posts.next_page_number }}" aria-label="Sonraki">
+                                {{ posts.next_page_number }}
+                            </a>
+                              <!-- Include the dots if there are multiple pages -->
+                              {% if posts.paginator.num_pages > 3 and posts.number > 1 %}
+                                  <span class="page-numbers dots">&hellip;</span>
+                              {% endif %}
+                            <a class="page-numbers" href="?page={{ posts.paginator.num_pages }}" aria-label="Son">
+                                {{ posts.paginator.num_pages }}
+                            </a>{% endif %}
+                            <a class="next page-numbers" href="?page={{ posts.next_page_number }}">
+                            <span class="visuallyhidden">Next</span>
+                            <i class="tsi tsi-angle-right"></i></a>
+                          </nav>
+
+
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div
+                  class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-25f6750 main-sidebar main-sidebar ts-sticky-col"
+                  data-id="25f6750"
+                  data-element_type="column"
+                >
+                  <div
+                    class="elementor-widget-wrap elementor-element-populated"
+                  >
+                    <div
+                      class="elementor-element elementor-element-13338a0 elementor-widget elementor-widget-spacer"
+                      data-id="13338a0"
+                      data-element_type="widget"
+                      data-widget_type="spacer.default"
+                    >
+                      <div class="elementor-widget-container">
+                        <style>
+                          /*! elementor - v3.19.0 - 07-02-2024 */
+
+                          .elementor-column .elementor-spacer-inner {
+                            height: var(--spacer-size);
+                          }
+
+                          .e-con {
+                            --container-widget-width: 100%;
+                          }
+
+                          .e-con-inner > .elementor-widget-spacer,
+                          .e-con > .elementor-widget-spacer {
+                            width: var(
+                              --container-widget-width,
+                              var(--spacer-size)
+                            );
+                            --align-self: var(
+                              --container-widget-align-self,
+                              initial
+                            );
+                            --flex-shrink: 0;
+                          }
+
+                          .e-con-inner
+                            > .elementor-widget-spacer
+                            > .elementor-widget-container,
+                          .e-con
+                            > .elementor-widget-spacer
+                            > .elementor-widget-container {
+                            height: 100%;
+                            width: 100%;
+                          }
+
+                          .e-con-inner
+                            > .elementor-widget-spacer
+                            > .elementor-widget-container
+                            > .elementor-spacer,
+                          .e-con
+                            > .elementor-widget-spacer
+                            > .elementor-widget-container
+                            > .elementor-spacer {
+                            height: 100%;
+                          }
+
+                          .e-con-inner
+                            > .elementor-widget-spacer
+                            > .elementor-widget-container
+                            > .elementor-spacer
+                            > .elementor-spacer-inner,
+                          .e-con
+                            > .elementor-widget-spacer
+                            > .elementor-widget-container
+                            > .elementor-spacer
+                            > .elementor-spacer-inner {
+                            height: var(
+                              --container-widget-height,
+                              var(--spacer-size)
+                            );
+                          }
+
+                          .e-con-inner
+                            > .elementor-widget-spacer.elementor-widget-empty,
+                          .e-con
+                            > .elementor-widget-spacer.elementor-widget-empty {
+                            position: relative;
+                            min-height: 22px;
+                            min-width: 22px;
+                          }
+
+                          .e-con-inner
+                            > .elementor-widget-spacer.elementor-widget-empty
+                            .elementor-widget-empty-icon,
+                          .e-con
+                            > .elementor-widget-spacer.elementor-widget-empty
+                            .elementor-widget-empty-icon {
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                            padding: 0;
+                            width: 22px;
+                            height: 22px;
+                          }
+                        </style>
+                        <div class="elementor-spacer">
+                          <div class="elementor-spacer-inner"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="elementor-element elementor-element-5400291 elementor-widget elementor-widget-spacer"
+                      data-id="5400291"
+                      data-element_type="widget"
+                      data-widget_type="spacer.default"
+                    >
+                      <div class="elementor-widget-container">
+                        <div class="elementor-spacer">
+                          <div class="elementor-spacer-inner"></div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    <div
+                      class="elementor-element elementor-element-25669cc elementor-widget elementor-widget-smartmag-grid"
+                      data-id="25669cc"
+                      data-element_type="widget"
+                      data-widget_type="smartmag-grid.default"
+                    >
+                      <div class="elementor-widget-container">
+                        <section
+                          class="block-wrap block-grid block-sc"
+                          data-id="3"
+                        >
+                          <div class="block-head block-head-b is-left">
+                            <h2 class="heading">Girişimcilik Gündemi</h2>
+                            {% for post in girisimcilik_posts|slice:":10" %}
+                          </div>
+                          <div class="block-content">
+                            <div
+                              class="loop loop-grid loop-grid-base grid grid-1 md:grid-1 xs:grid-1"
+                            >
+                              <article class="l-post grid-post grid-base-post">
+                                <div class="media">
+                                   {% if post.haber_baslik_resmi %}
+                                  <a
+                                    href="{% url 'post:post_detail' slug=post.slug %}"
+                                    class="image-link media-ratio ratio-16-9"
+                                    title="{{ post.title }}"
+                                    ><span
+                                      data-bgsrc="{{ post.haber_baslik_resmi.url }}"
+                                      class="img bg-cover wp-post-image attachment-bunyad-medium size-bunyad-medium lazyload"
+                                      data-bgset="{{ post.haber_baslik_resmi.url }}"
+                                      data-sizes="(max-width: 377px) 100vw, 377px"
+                                    ></span
+                                  ></a> {% endif %} {% if post.title %}
+                                </div>
+                                <div class="content">
+                                  <div class="post-meta post-meta-a">
+                                    <h2 class="is-title post-title">
+                                      <a
+                                        href="{% url 'post:post_detail' slug=post.slug %}"
+                                        >{{ post.title }}</a
+                                      > {% endif %}
+                                    </h2>
+                                    <br></br>
+                                  </div>
+                                </div>
+                              </article> {% endfor %}
+                              
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+
+
+
+{% endblock container %}

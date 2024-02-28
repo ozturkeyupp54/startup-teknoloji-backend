@@ -1,0 +1,277 @@
+<!-- entrepreneur/entrepreneur_search.html -->
+
+{% extends 'base.html' %} {% block container %}
+<h1>Girişimler Arama Sonuçları</h1>
+  <!-- Alt Navbar -->
+  <div class="o-wrapper__header">
+    <div id="sticky" class="c-navbar">
+      <div class="container c-navbar__container">
+        <a class="c-navbar__logo-link" href="/">
+          <img
+            class="c-navbar__logo-img c-navbar__logo-img--desktop"
+            src="/assets/img/logo.svg"
+            alt=""
+          />
+          <img
+            class="c-navbar__logo-img c-navbar__logo-img--mobile"
+            src="/assets/img/logo-mobile.svg"
+            alt=""
+          />
+        </a>
+        <div id="navbarSearch" class="c-navbar__search">
+          <button
+            type="button"
+            class="c-navbar__dropdown-close"
+            search-toggle-close
+          >
+            <svg class="icon">
+              <use xlink:href="#icon-close"></use>
+            </svg>
+          </button>
+          <div
+            class="c-form-group c-form-group--icon-left js-auto-complete-search"
+          >
+            <svg class="icon u-color-muted">
+              <use xlink:href="#icon-search"></use>
+            </svg>
+            <form
+              action="{% url 'entrepreneur:entrepreneur_search' %}"
+              href="method"
+              ="get"
+            >
+              <input
+                type="text"
+                class="c-form-control"
+                placeholder="Girişimleri Ara"
+                auto-complete="search"
+                name="girisim_adi"
+              />
+            </form>
+          </div>
+        </div>
+        <div
+          class="c-navbar__nav u-gap-left-auto@lg-up u-gap-left-small@md-down u-hidden@md-down"
+        >
+          <ul class="c-navbar__menu">
+            <li class="c-navbar__menu-item">
+              <a href="/teklif/" class="c-navbar__menu-link u-color-warning"
+                >Teklifler</a
+              >
+            </li>
+            <li class="c-navbar__menu-item">
+              <a
+                href="{% url 'entrepreneur:entrepreneur_list' %}"
+                class="c-navbar__menu-link"
+                >Girişimler</a
+              >
+            </li>
+            <li class="c-navbar__menu-item">
+              <a
+                href="{% url 'entrepreneur:entrepreneur_list' %}"
+                class="c-navbar__menu-link"
+                >Yatırımcılar</a
+              >
+            </li>
+            <li class="c-navbar__menu-item">
+              <a href="/paketler" class="c-navbar__menu-link u-hidden@xs-down"
+                >Paketler</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div
+          class="c-navbar__nav u-gap-left-xsmall@lg-up u-gap-left-auto@md-down"
+        >
+          <a href="/admin/" class="c-button c-button--primary c-button--small"
+            >Giriş Yap</a
+          >
+
+          <a
+            href="/user/register/"
+            class="c-button c-button--ghost c-button--small u-gap-left-xsmall u-hidden@md-down"
+            >Kayıt Ol</a
+          >
+        </div>
+        <ul class="c-navbar__menu">
+          <li
+            class="c-navbar__menu-item c-dropdown c-navbar__dropdown u-gap-left-xsmall u-hidden@lg-up"
+            data-dropdown-container
+          >
+            <button
+              class="c-circle-icon no-circle js-hamburger-trigger"
+              data-dropdown-toggle
+              data-body-lock
+            >
+              <svg class="icon c-circle-icon__icon">
+                <use xlink:href="#icon-hamburger"></use>
+              </svg>
+            </button>
+            <div class="c-dropdown__content" data-dropdown-content>
+              <div class="c-box c-navbar__box c-navbar__box--user">
+                <div class="c-box__body">
+                  <div
+                    class="c-form-group c-form-group--icon-left js-auto-complete-mobile-search u-gap-bottom-xsmall"
+                  >
+                    <svg class="icon u-color-muted">
+                      <use xlink:href="#icon-search"></use>
+                    </svg>
+                    <form action="/arama" method="get">
+                      <input
+                        type="text"
+                        class="c-form-control"
+                        placeholder="Girişimleri Ara"
+                        auto-complete="search"
+                        name="sm_q"
+                      />
+                    </form>
+                  </div>
+
+                  <ul class="list-unstyled u-pad-sides-2xsmall">
+                    <li class="u-gap-top">
+                      <a
+                        href="/teklif/"
+                        class="c-navbar__menu-link u-color-warning"
+                        >Teklifler</a
+                      >
+                    </li>
+                    <li class="u-gap-top">
+                      <a href="/girisimler" class="c-navbar__menu-link"
+                        >Girişimler</a
+                      >
+                    </li>
+                    <li class="u-gap-top">
+                      <a href="/yatirimcilar" class="c-navbar__menu-link"
+                        >Yatırımcılar</a
+                      >
+                    </li>
+                    <li class="u-gap-top">
+                      <a href="/mentorlar" class="c-navbar__menu-link"
+                        >Mentorlar</a
+                      >
+                    </li>
+                    <li class="u-gap-top">
+                      <a href="/paketler" class="c-navbar__menu-link"
+                        >Paketler</a
+                      >
+                    </li>
+                    <li class="u-gap-top">
+                      <a
+                        href="https://blog.startupmarket.co"
+                        class="c-navbar__menu-link"
+                        >Blog</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <button
+                type="button"
+                class="c-navbar__dropdown-close"
+                data-dropdown-toggle
+              >
+                <svg class="icon">
+                  <use xlink:href="#icon-close"></use>
+                </svg>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filtreleme -->
+  <!-- Filtreleme Formu -->
+  <div>
+    
+    <form method="get">
+      {{ filter.form.as_p }}
+      <button type="submit">Filtrele</button>
+    </form>
+   
+
+    <!-- Filtrelenmiş Sonuçlar -->
+    
+    <div>
+      {% for entrepreneur in filter.qs %}
+      <div>
+        <h2>{{ entrepreneur.girisim_adi }}</h2>
+        <h2>{{ entrepreneur.girisim_industry_category }}</h2>
+        <!-- Girişim diğer alanları ekle -->
+      </div>
+      {% endfor %}
+    </div>
+   
+  </div>
+<!-- Arama Sonuçları -->
+<div>
+  {% for entrepreneur in object_list %}
+  <div>
+    <div class="col col--xl-9">
+      <div class="row">
+        {% for entrepreneur in entrepreneurs %}
+        <div
+          class="col col--lg-4 col--md-6 u-gap-bottom-medium u-flex u-flex-dir-column"
+        >
+          <div class="c-box c-box--small u-flex-grow-full">
+            {% if entrepreneur.girisim_logo %}
+            <a
+              href="{% url 'entrepreneur:entrepreneur_detail' pk=entrepreneur.pk %}"
+              class="c-box__image"
+            >
+              <img
+                class="u-full-width"
+                src="{{ entrepreneur.girisim_logo.url }}"
+                alt="{{ entrepreneur.girisim_adi }} Logo"
+              />
+            </a>
+            {% endif %}
+            <div class="c-box__body">
+              <div class="c-user-card u-gap-bottom-small">
+                {% if entrepreneur.girisim_logo %}
+                <a
+                  class="c-user-card__image"
+                  href="{% url 'entrepreneur:entrepreneur_detail' pk=entrepreneur.pk %}"
+                >
+                  <img
+                    class="c-avatar c-avatar--small"
+                    src="{{ entrepreneur.girisim_logo.url }}"
+                    alt="{{ entrepreneur.girisim_adi }} Logo"
+                    width="100"
+                  />
+                </a>
+                {% endif %}
+                <div class="c-user-card__body">
+                  {% if entrepreneur.girisim_adi %}
+                  <a
+                    href="{% url 'entrepreneur:entrepreneur_detail' pk=entrepreneur.pk %}"
+                    class="c-user-card__title"
+                    >{{ entrepreneur.girisim_adi }}</a
+                  >
+                  {% endif %}
+                  <span class="c-user-card__subtitle"
+                    >{{ entrepreneur.get_girisim_location_city_display }}, {{
+                    entrepreneur.girisim_subcategory }}</span
+                  >
+                </div>
+              </div>
+              {% if entrepreneur.girisim_slogani %}
+              <p class="u-clear-gap">{{ entrepreneur.girisim_slogani }}</p>
+              {% endif %}
+            </div>
+            <div class="c-box__footer">
+              <a
+                href="{% url 'entrepreneur:entrepreneur_detail' pk=entrepreneur.pk %}"
+                class="c-button c-button--ghost c-button--block"
+                >İncele</a
+              >
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

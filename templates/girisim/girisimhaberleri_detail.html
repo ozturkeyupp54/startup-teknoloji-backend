@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block container %}
+  <h2>{{ girisim_haber.haber_basligi }} Detayları</h2>
+  <p>Tarih: {{ girisim_haber.haber_tarihi }}</p>
+  <p>Link: <a href="{{ girisim_haber.haber_linki }}" target="_blank">{{ girisim_haber.haber_linki }}</a></p>
+  <p>Girişim Adı: {{ girisim_haber.target_to_girisim.girisim_adi }}</p>
+  <!-- Daha fazla detay veya bilgi ekleyebilirsiniz -->
+  <a href="{% url 'girisimhaberleri_list' %}">Geri</a>
+{% endblock %}

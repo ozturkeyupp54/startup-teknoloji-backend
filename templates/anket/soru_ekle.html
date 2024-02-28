@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% load static %}
+{% block title %}Page Title{% endblock title %}
+{% block description %}Page Description{% endblock description %}
+{% block og_title %}OpenGraph Title{% endblock og_title %}
+{% block og_description %}OpenGraph Description{% endblock og_description %}
+{% block og_image %}URL to OpenGraph Image{% endblock og_image %}
+{% block og_url %}URL to OpenGraph Page{% endblock og_url %}
+{% block container %}
+
+<form method="post" action="{% url 'soru_ekle' anket_id=anket.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Soru Ekle</button>
+</form>
+{%endblock%}

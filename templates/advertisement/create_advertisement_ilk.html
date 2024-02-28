@@ -1,0 +1,923 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Responsive Admin &amp; Reklam Paneli Template based on Bootstrap 5"
+    />
+    <meta name="author" content="AdminKit" />
+    <meta
+      name="keywords"
+      content="adminkit, bootstrap, bootstrap 5, admin, Reklam Paneli, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+    <link
+      rel="canonical"
+      href="https://demo-basic.adminkit.io/pages-profile.html"
+    />
+
+    <title>Startup Teknoloji Reklam</title>
+
+ <!-- In your HTML template -->
+
+<link rel="stylesheet" href="{% static 'post/app.css' %}" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/Reklam Paneli/libs/bootstrap/dist/css/bootstrap.min.css"
+      type="text/css"
+    />
+    <style>
+      /* CSS stilleri */
+      #previewModal {
+         {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(
+            0,
+            0,
+            0,
+            0.5
+          ); /* Sayfa arka planını karartmak için yarı saydam bir arka plan */
+        }
+      }
+
+      .modal-content {
+         {
+          background-color: white;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          max-width: 80%; /* Modal içeriğinin maksimum genişliği */
+        }
+      }
+
+      #formPreview img {
+         {
+          display: block;
+          margin: 0 auto; /* Resmi ortalamak için */
+          max-width: 100%; /* Resmin maksimum genişliği */
+          max-height: 80vh; /* Resmin maksimum yüksekliği */
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <nav id="sidebar" class="sidebar js-sidebar">
+        <div class="sidebar-content js-simplebar">
+          <a class="sidebar-brand" href="{% url 'homepage' %}">
+            <span class="align-middle">Startup Teknoloji </span>
+          </a>
+
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">REKLAM</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{% url 'homepage' %}"> 
+                <i class="align-middle" data-feather="sliders"></i>
+                <span class="align-middle">Reklam Paneli</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item active">
+              <a class="sidebar-link" > 
+                <i class="align-middle" data-feather="user"></i>
+                <span class="align-middle">Kampanya Oluştur</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="anket.html">
+                <i class="align-middle" data-feather="sliders"></i>
+                <span class="align-middle">Anket Paneli</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="anket-oluştur.html">
+                <i class="align-middle" data-feather="user"></i>
+                <span class="align-middle">Anket Oluştur</span>
+              </a>
+            </li>
+
+            <li class="sidebar-header">Fatura</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="ui-buttons.html">
+                <i class="align-middle" data-feather="square"></i>
+                <span class="align-middle">Bakiye Yükle</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="ui-forms.html">
+                <i class="align-middle" data-feather="check-square"></i>
+                <span class="align-middle">Ödemeler</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="ui-cards.html">
+                <i class="align-middle" data-feather="grid"></i>
+                <span class="align-middle">Fatura Bilgileri</span>
+              </a>
+            </li>
+
+            <li class="sidebar-header">Hesap</li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="ui-typography.html">
+                <i class="align-middle" data-feather="align-left"></i>
+                <span class="align-middle">Hesap Ayarları</span>
+              </a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="charts-chartjs.html">
+                <i class="align-middle" data-feather="bar-chart-2"></i>
+                <span class="align-middle">Kvkk ve Çerez Politikası</span>
+              </a>
+            </li>
+
+            <!-- <li class="sidebar-item">
+              <a class="sidebar-link" href="maps-google.html">
+                <i class="align-middle" data-feather="map"></i>
+                <span class="align-middle">Maps</span>
+              </a>
+            </li>
+            
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="icons-feather.html">
+                <i class="align-middle" data-feather="coffee"></i>
+                <span class="align-middle">Icons</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="pages-blank.html">
+                <i class="align-middle" data-feather="book"></i>
+                <span class="align-middle">Blank</span>
+              </a>
+            </li> -->
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="pages-sign-in.html">
+                <i class="align-middle" data-feather="log-in"></i>
+                <span class="align-middle">Çıkış Yap</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="main">
+        <nav class="navbar navbar-expand navbar-light navbar-bg">
+          <a class="sidebar-toggle js-sidebar-toggle">
+            <i class="hamburger align-self-center"></i>
+          </a>
+
+          <div class="navbar-collapse collapse">
+            <ul class="navbar-nav navbar-align">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-icon dropdown-toggle d-inline-block d-sm-none"
+                  href="#"
+                  data-bs-toggle="dropdown"
+                >
+                  <i class="align-middle" data-feather="settings"></i>
+                </a>
+
+                <a
+                  class="nav-link dropdown-toggle d-none d-sm-inline-block"
+                  href="#"
+                  data-bs-toggle="dropdown"
+                >
+                  <img
+                  src="{% static 'img/avatars/avatar.jpg' %}"
+                  class="avatar img-fluid rounded me-1"
+                    alt="Charles Hall"
+                  />
+                  <span class="text-dark">Charles Hall</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <a class="dropdown-item" href="pages-profile.html"
+                    ><i class="align-middle me-1" data-feather="user"></i>
+                    Profile</a
+                  >
+                  <a class="dropdown-item" href="#"
+                    ><i class="align-middle me-1" data-feather="pie-chart"></i>
+                    Analytics</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="index.html"
+                    ><i class="align-middle me-1" data-feather="settings"></i>
+                    Settings & Privacy</a
+                  >
+                  <a class="dropdown-item" href="#"
+                    ><i
+                      class="align-middle me-1"
+                      data-feather="help-circle"
+                    ></i>
+                    Help Center</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Log out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="content">
+          {% if messages %}
+            <ul class="messages">
+              {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="container-fluid p-0">
+              <div class="row">
+                <div class="col-md-9">
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="card-title mb-0">Kampanya Oluşturun</h5>
+                    </div>
+                    <div class="card-body h-100">
+                      <div class="d-flex align-items-start flex-column gap-3">
+                        <div class="d-flex w-100">
+                          <div class="flex-grow-1 me-4">
+                            <label for="id_kampanya_creator_adi">Ad</>
+                            <input
+                              id="id_kampanya_creator_adi"
+                              name="kampanya_creator_adi"
+                              type="text"
+                              class="form-control mt-1"
+                              placeholder="Adınızı girin"
+                            />
+                          </div>
+                          <div class="flex-grow-1">
+                            <label for="id_kampanya_creator_soyadi">Soyad</label>
+                            <input
+                              id="id_kampanya_creator_soyadi"
+                              name="kampanya_creator_soyadi"
+                              type="text"
+                              class="form-control mt-1"
+                              placeholder="Soyadınızı girin"
+                            />
+                          </div>
+                        </div>
+                        <div class="d-flex w-100">
+                          <div class="flex-grow-1 me-4">
+                            <label for="id_kampanya_basligi"
+                              >Kampanya Adı</label
+                            >
+                            <input
+                              id="id_kampanya_basligi"
+                              name="kampanya_basligi"
+                              type="text"
+                              class="form-control mt-1"
+                              placeholder="Örnek Kampanya"
+                            />
+                          </div>
+                          <div class="flex-grow-1">
+                            <label for="id_sirket_adi"
+                              >Reklamveren ya da Marka Adı</label
+                            >
+                            <input
+                              id="id_sirket_adi"
+                              name="sirket_adi"
+                              type="text"
+                              class="form-control mt-1"
+                              placeholder="Markanızın adını girin"
+                            />
+                          </div>
+                        </div>
+                        <div class="d-flex w-100">
+                          <div class="flex-grow-1 me-4">
+                            <label for="id_kampanya_baslangic_tarihi">Kampanya Başlangıç Tarihi</label>
+                            <input
+                              id="id_kampanya_baslangic_tarihi"
+                              name="kampanya_baslangic_tarihi"
+                              type="date"
+                              class="form-control mt-1"                             
+                            />
+                          </div>
+                          <div class="flex-grow-1">
+                            <label for="id_kampanyanin_websitesinin_linki">Markanızın Websitesinin Adresi</label>
+                            {{ form.kampanyanin_websitesinin_linki }}            
+                          </div>
+                        </div>
+                        <div class="d-flex w-100">
+                          <div class="flex-grow-1">
+                            <label for="id_reklam_gosterim_yeri">Gösterim Yeri</label>
+                            <select
+                                id="id_reklam_gosterim_yeri"
+                                class="form-select mt-2"
+                                aria-label="Default select example"
+                                name="reklam_gosterim_yeri"
+                                onchange="toggleImageUploadFields()"
+                            >
+                                <option value="Her İkiside">Her İkiside</option>
+                                <option value="Üst">Üst</option>
+                                <option value="Alt">Alt</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="d-flex w-100">
+              <div class="flex-grow-1 me-4">
+              <div id="top" class="mb-3">
+              <label for="id_advertisement_ust_resmi" class="form-label">Üst Reklam Alanı İçin Reklam Yükleyin</label>
+              <input type="file" class="form-control" id="id_advertisement_ust_resmi" name="advertisement_ust_resmi" accept="image/*" />
+              </div>
+              
+        </div>
+          <div class="flex-grow-1">
+              <div id="under" class="mb-3">
+                  <label for="id_advertisement_alt_resmi" class="form-label">Alt Reklam Alanı İçin Reklam Yükleyin</label>
+                  <input type="file" class="form-control" id="id_advertisement_alt_resmi" name="advertisement_alt_resmi" accept="image/*" />
+              </div>
+              <small class="text-danger">Uyarı: Yükleyeceğiniz resmin boyutları 250px yükseklik ve 1250 px genişliğinde olmalıdır. Aksi takdirde kabul edilmeyecektir.</small>
+              {% comment %} <button onclick="showPreview()">Ön İzleme</button> {% endcomment %}
+              <div id="previewModal" class="modal" style="display: none">
+                  <div class="modal-content">
+                      <span class="close" onclick="closePreview()">&times;</span>
+                      <div id="formPreview"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+                        <button type="submit">Reklam Oluştur</button>
+                        <div>
+                          <label for="budget">Reklam Bütçeniz</label>
+                          <div class="input-group mb-3 mt-1">
+                            <input
+                              id="budget"
+                              type="text"
+                              class="form-control"
+                              placeholder="0"
+                              aria-describedby="basic-addon2"
+                            />
+                            <span class="input-group-text" id="basic-addon2"
+                              >TRY</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <hr />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3" style="position: relative">
+                  <h4
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <span class="text-primary">Ödeme Planınız</span>
+                  </h4>
+                  <ul class="list-group mb-3">
+                    <li
+                      class="list-group-item d-flex justify-content-between lh-sm"
+                    >
+                      <div>
+                        <h6 class="mt-1 my-1">Reklam Çeşidi</h6>
+                        <p class="text-body-secondary mt-1 my-0">
+                          Ana Sayfa-Üst
+                        </p>
+                      </div>
+                      <div>
+                        <p class="text-body-secondary mt-1 my-1">
+                          Gösterim Birim Fiyatı
+                        </p>
+                        <p class="text-body-secondary mt-1 my-0 text-end">
+                          10₺
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between lh-sm"
+                    >
+                      <div>
+                        <h6 class="my-0">Reklam Bütçeniz</h6>
+                        <small class="text-danger"
+                          >Reklam gösterim sayınız bütçenize göre
+                          belirlenir.</small
+                        >
+                      </div>
+                      <span class="text-body-secondary">500₺</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between lh-sm"
+                    >
+                      <div>
+                        <h6 class="my-0">Gösterim Sayısı</h6>
+                        <small class="text-danger"
+                          >Bütçenize göre belirlenen gösterim sayısı</small
+                        >
+                      </div>
+                      <span class="text-body-secondary">50</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between bg-body-tertiary"
+                    >
+                      <div class="text-success">
+                        <h6 class="my-0">Promosyon Kodu</h6>
+                        <small>LambAICode</small>
+                      </div>
+                      <span class="text-success">−5₺</span>
+                    </li>
+                  </ul>
+
+                  <form class="card p-2">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Promosyon Kodu"
+                      />
+                      <button type="submit" class="btn btn-secondary">
+                        Uygula
+                      </button>
+                      <button type="submit" class="btn btn-success">
+                        Ödeme Yap
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </form>
+        </main>
+      </div>
+    </div>
+{% comment %} <script src="{% static 'post/anket_script.js'%}"></script> {% endcomment %}
+<script>
+let questions = [];
+
+function addQuestion() {
+    const questionContainer = document.getElementById('questionContainer');
+    const questionDiv = document.createElement('div');
+    questionDiv.className = 'question-block';
+    const questionId = 'question-' + (questionContainer.children.length + 1);
+    questionDiv.id = questionId;
+
+    // Soru input alanı
+    const questionInput = document.createElement('input');
+    questionInput.type = 'text';
+    questionInput.placeholder = 'Soru';
+    questionInput.className = 'question-input';
+    questionDiv.appendChild(questionInput);
+
+    // Cevap tipi seçimi
+    const questionTypeSelect = document.createElement('select');
+    questionTypeSelect.className = 'question-type-select';
+    const optionTypes = ['Cevap Tipini Seçiniz', 'Kısa Cevap', 'Paragraf', 'Çoktan Seçmeli', 'Onay Kutusu', 'Açılır Liste', 'Tarih', 'Zaman'];
+    optionTypes.forEach(type => {
+        let option = document.createElement('option');
+        option.value = type;
+        option.text = type;
+        questionTypeSelect.appendChild(option);
+    });
+    questionTypeSelect.onchange = () => handleQuestionTypeChange(questionTypeSelect, questionDiv);
+    questionDiv.appendChild(questionTypeSelect);
+
+    // Cevap seçenekleri için konteyner
+    const answerOptionsContainer = document.createElement('div');
+    answerOptionsContainer.className = 'answer-options-container';
+    questionDiv.appendChild(answerOptionsContainer);
+
+    // Soru nesnesi
+    const question = {
+        questionDiv,
+        questionInput,
+        questionTypeSelect,
+        answerOptions: [],
+        mandatory: null // Bu alanı sonra ayarlayacağız
+    };
+
+    // Cevap Seçeneği Ekle butonu
+    const addOptionButton = document.createElement('button');
+    addOptionButton.id = 'add-option-button-' + questionId;
+    addOptionButton.innerText = 'Cevap Seçeneği Ekle';
+    addOptionButton.onclick = () => addAnswerOption(answerOptionsContainer, question);
+    addOptionButton.style.display = 'none';
+    questionDiv.appendChild(addOptionButton);
+
+    // Zorunlu alan switch'i ve etiketi
+    const mandatorySwitchContainer = document.createElement('div');
+    mandatorySwitchContainer.className = 'mandatory-switch-container';
+    const mandatorySwitchLabel = document.createElement('label');
+    mandatorySwitchLabel.innerHTML = 'Zorunlu: ';
+    mandatorySwitchLabel.htmlFor = 'mandatory-' + questionId;
+    const mandatorySwitch = document.createElement('input');
+    mandatorySwitch.type = 'checkbox';
+    mandatorySwitch.id = 'mandatory-' + questionId;
+    mandatorySwitch.className = 'mandatory-switch';
+    mandatorySwitchContainer.appendChild(mandatorySwitchLabel);
+    mandatorySwitchContainer.appendChild(mandatorySwitch);
+    questionDiv.appendChild(mandatorySwitchContainer);
+
+    // Soru nesnesine 'mandatory' özelliğini ekleyin
+    question.mandatory = mandatorySwitch;
+
+    // Resim yükleme butonu ve önizleme alanı
+    const imageUploadInput = document.createElement('input');
+    imageUploadInput.type = 'file';
+    imageUploadInput.accept = 'image/*';
+    imageUploadInput.style.display = 'none';
+    imageUploadInput.onchange = (e) => handleImageUpload(e, questionDiv);
+
+    const imageUploadLabel = document.createElement('label');
+    imageUploadLabel.innerHTML = 'Resim Yükle';
+    imageUploadLabel.className = 'custom-file-upload';
+    imageUploadLabel.appendChild(imageUploadInput);
+
+    const imagePreview = document.createElement('img');
+    imagePreview.style.maxWidth = '100%';
+    imagePreview.style.display = 'none';
+
+    questionDiv.appendChild(imageUploadLabel);
+    questionDiv.appendChild(imagePreview);
+    createImageOptionsMenu(questionDiv);
+
+    // Soru nesnesine 'image' özelliğini ekleyin
+    question.image = imagePreview;
+
+    // Soruyu questions dizisine ekle
+    questions.push(question);
+
+    // Soru bölümünü ana konteynere ekle
+    questionContainer.appendChild(questionDiv);
+}
+
+
+function handleQuestionTypeChange(questionTypeSelect, questionDiv) {
+    const answerOptionsContainer = questionDiv.querySelector('.answer-options-container');
+    const addOptionButton = document.getElementById('add-option-button-' + questionDiv.id);
+
+    answerOptionsContainer.innerHTML = '';
+
+    switch (questionTypeSelect.value) {
+        case 'Kısa Cevap':
+        case 'Paragraf':
+        case 'Tarih':
+        case 'Zaman':
+            addOptionButton.style.display = 'none';
+            let inputType;
+            switch (questionTypeSelect.value) {
+                case 'Paragraf':
+                    inputType = 'textarea';
+                    break;
+                case 'Tarih':
+                    inputType = 'date';
+                    break;
+                case 'Zaman':
+                    inputType = 'time';
+                    break;
+                default:
+                    inputType = 'text';
+            }
+            const input = document.createElement(inputType === 'textarea' ? 'textarea' : 'input');
+            if (inputType !== 'textarea') {
+                input.type = inputType;
+            }
+            input.className = 'option-input';
+            input.placeholder = questionTypeSelect.value === 'Paragraf' ? 'Paragraf yanıtı' : 'Kısa cevap';
+            input.disabled = true; // Input alanını devre dışı bırak
+            answerOptionsContainer.appendChild(input);
+            break;
+        default:
+            addOptionButton.style.display = 'block';
+            break;
+    }
+}
+
+function createImageOptionsMenu(questionDiv) {
+    // Menüyü oluştur
+    const menu = document.createElement('div');
+    menu.className = 'image-options-menu';
+    //menu.style.display = 'none'; // Menüyü başlangıçta gizle
+    // Menü içeriği
+
+
+    // Menüyü açıp kapatan <buton></buton>
+    const menuButton = document.createElement('div');
+    menuButton.className = 'menu-button';
+    menuButton.innerHTML = `
+
+    <button class="menu-btn" onclick="changeImage('${questionDiv.id}')">Değiştir</button>
+    <button class="menu-btn" onclick="removeImage('${questionDiv.id}')">Kaldır</button>
+    `
+    menuButton.onclick = (event) => {
+        event.stopPropagation();
+        closeAllOpenMenus(); // Diğer tüm menüleri kapat
+        menu.classList.toggle('show');
+        menu.style.left = event.clientX + 'px'; // Menünün X koordinatını ayarla
+        menu.style.top = event.clientY + 'px'; // Menünün Y koordinatını ayarla
+    };
+
+    questionDiv.appendChild(menu);
+    questionDiv.appendChild(menuButton);
+}
+
+// Diğer tüm açık menüleri kapat
+function closeAllOpenMenus() {
+    document.querySelectorAll('.image-options-menu.show').forEach(openMenu => {
+        openMenu.classList.remove('show');
+    });
+}
+
+function handleImageUpload(event, questionDiv) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const imagePreview = questionDiv.querySelector('img');
+        imagePreview.src = e.target.result;
+        imagePreview.style.display = 'block'; // Resmi göster
+    };
+    reader.readAsDataURL(file);
+}
+
+function addAnswerOption(container, question) {
+    const optionInput = document.createElement('input');
+    optionInput.type = 'text';
+    optionInput.className = 'option-input';
+    optionInput.placeholder = 'Cevap Seçeneği';
+    container.appendChild(optionInput);
+
+    // Seçeneği question objesinin answerOptions dizisine ekle
+    question.answerOptions.push(optionInput);
+}
+
+// yüklenen resmin hizalanması 
+function alignImage(questionDivId, alignment) {
+    const questionDiv = document.getElementById(questionDivId);
+    const image = questionDiv.querySelector('img');
+    if (image) {
+        image.style.float = alignment; // 'left', 'right', 'none' için
+        image.style.margin = alignment === 'center' ? 'auto' : '0'; // Ortalama için
+    }
+}
+
+// yüklenen resmin değiştirilmesi
+function changeImage(questionDivId) {
+
+    const questionDiv = document.getElementById(questionDivId);
+    const imageUploadInput = questionDiv.querySelector('input[type="file"]');
+    if (imageUploadInput) {
+        imageUploadInput.click();
+    }
+}
+
+// yüklenen resmin kaldırılması
+function removeImage(questionDivId) {
+    const questionDiv = document.getElementById(questionDivId);
+    const image = questionDiv.querySelector('img');
+    if (image) {
+        image.remove(); // Resmi kaldır
+    }
+}
+
+
+function submitForm() {
+    const formTitle = document.getElementById('formTitle').value;
+    const formDescription = document.getElementById('formDescription').value; // Form açıklamasını al
+    const questionData = questions.map(q => ({
+        question: q.questionInput.value,
+        type: q.questionTypeSelect.value
+        // Seçenekler eklenebilir
+    }));
+
+    // Form verilerini sunucuya gönder
+    fetch('/createForm', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title: formTitle, description: formDescription, questions: questionData }) // Açıklamayı da gönder
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Form başarıyla gönderildi:', data);
+            // Başarılı gönderimden sonra yapılacak işlemler
+        })
+        .catch((error) => {
+            console.error('Hata:', error);
+        });
+}
+
+function updateQuestionFont(font) {
+    // Tüm soru inputlarının fontunu güncelle
+    document.querySelectorAll('.question-block .question-input').forEach(el => el.style.fontFamily = font);
+}
+
+function updateTextFont(font) {
+    // Tüm seçenek inputlarının fontunu güncelle
+    document.querySelectorAll('.question-block .option-input').forEach(el => el.style.fontFamily = font);
+}
+
+
+function showPreview() {
+    // Form başlığı ve açıklamasını al
+    const formTitle = document.getElementById('formTitle').value;
+    const formDescription = document.getElementById('formDescription').value;
+    const headerImage = document.getElementById('form-header-image');
+
+    // Ön izleme içeriğini oluştur
+    const preview = document.getElementById('formPreview');
+    let previewContent = `<h1>${formTitle}</h1>`;
+
+    // Anket başlığı için resim ekleme
+    if (headerImage && headerImage.src) {
+        previewContent += `<img src="${headerImage.src}" style="max-width: 100%; height: auto;"/>`;
+    }
+
+    previewContent += `<p>${formDescription}</p>`;
+
+    // Soruları ve ilgili detayları ekle
+    questions.forEach(q => {
+        previewContent += `<div class='preview-question'><strong>Soru: ${q.questionInput.value}</strong></div>`;
+
+        // Soruya ilişkin resmi ekleme
+        if (q.image && q.image.src) {
+            previewContent += `<img src="${q.image.src}" style="max-width: 100%; height: auto;"/>`;
+        }
+
+        // Soru tipine göre ek bilgileri ekle
+        switch (q.questionTypeSelect.value) {
+            case 'Çoktan Seçmeli':
+                previewContent += '<ul>';
+                q.answerOptions.forEach(opt => {
+                    previewContent += `<li><input type="radio" >${opt.value}</li>`;
+                });
+                previewContent += '</ul>';
+                break;
+            case 'Onay Kutusu':
+                previewContent += '<ul>';
+                q.answerOptions.forEach(opt => {
+                    previewContent += `<li><input type="checkbox" >${opt.value}</li>`;
+                });
+                previewContent += '</ul>';
+                break;
+            case 'Açılır Liste':
+                previewContent += '<select >';
+                q.answerOptions.forEach(opt => {
+                    previewContent += `<option>${opt.value}</option>`;
+                });
+                previewContent += '</select>';
+                break;
+            case 'Tarih':
+                previewContent += `<p>Tarih Seçimi</p>`;
+                break;
+            case 'Zaman':
+                previewContent += `<p>Zaman Seçimi</p>`;
+                break;
+            // Diğer soru tipleri için eklemeler yapılabilir
+        }
+
+        // Zorunlu alan bilgisi
+        if (q.mandatory && q.mandatory.checked) {
+            previewContent += `<p><em>Bu soru zorunludur.</em></p>`;
+        }
+    });
+
+    preview.innerHTML = previewContent;
+    document.getElementById('previewModal').style.display = 'block';
+}
+
+
+
+
+
+function closePreview() {
+    document.getElementById('previewModal').style.display = 'none';
+}
+
+
+
+function toggleImageUploadFields() {
+  var selectedValue = document.getElementById("id_reklam_gosterim_yeri").value;
+  var topUploadField = document.getElementById("top");
+  var underUploadField = document.getElementById("under");
+
+  if (selectedValue === "Üst") {
+    topUploadField.style.display = "block";
+    underUploadField.style.display = "none";
+  } else if (selectedValue === "Alt") {
+    topUploadField.style.display = "none";
+    underUploadField.style.display = "block";
+  } else {
+    // If "Her İkiside" or other option is selected, show both upload fields
+    topUploadField.style.display = "block";
+    underUploadField.style.display = "block";
+  }
+}
+
+
+
+
+document.getElementById('header-image-upload').addEventListener('change', function (event) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const headerImage = document.getElementById('form-header-image');
+        if (headerImage) {
+            headerImage.src = e.target.result;
+            headerImage.style.display = 'block';
+        }
+    };
+    reader.readAsDataURL(event.target.files[0]);
+});
+
+
+document.getElementById('theme-color').addEventListener('input', function (event) {
+    // Tematik rengi güncelleyin
+    // Örnek: document.body.style.backgroundColor = event.target.value;
+});
+// Başlık Fontu için Dinleyici
+// Başlık Fontu için Dinleyici
+
+// Sayfa yüklendiğinde çalışacak kod
+document.addEventListener('DOMContentLoaded', function () {
+    // Diğer dinleyiciler
+
+    // Açıklama Fontu için Dinleyici
+    document.getElementById('description-font-selector').addEventListener('change', function (event) {
+        const selectedFont = event.target.value;
+        document.querySelector('.form-description').style.fontFamily = selectedFont;
+    });
+});
+document.getElementById('title-font-selector').addEventListener('change', function (event) {
+    const selectedFont = event.target.value;
+    document.querySelector('.form-title').style.fontFamily = selectedFont; // form başlığı için
+});
+
+// Soru Fontu için Dinleyici
+document.getElementById('question-font-selector').addEventListener('change', function (event) {
+    const selectedFont = event.target.value;
+    // Yeni eklenen her soruya uygulamak için addQuestion fonksiyonunu değiştirin
+    updateQuestionFont(selectedFont);
+});
+
+// Genel Metin Fontu için Dinleyici
+document.getElementById('text-font-selector').addEventListener('change', function (event) {
+    const selectedFont = event.target.value;
+    // Soruların seçenekleri gibi metin alanlarına uygulamak için gerekli kod
+    updateTextFont(selectedFont);
+});
+// Sayfanın herhangi bir yerine tıklandığında menüyü kapat
+document.addEventListener('click', closeAllOpenMenus);
+
+
+
+
+document.getElementById('theme-color').addEventListener('input', function (event) {
+    // Seçilen rengi al
+    const selectedColor = event.target.value;
+    // Arka plan rengini güncelle
+    document.querySelector('.form-builder-container').style.backgroundColor = selectedColor;
+});
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 1. Tüm bu üsttekilerin yapılmasından sonra da submitform fonksiyonunun aktive edilmesi ve nihayetinde de 
+//    veritabanı üzerinden backend'e taşınması ve hatta admin onayının gözükmesi sağlanması gerekiyor
+
+
+// 2. admin onayından sonra daha evvel hazırlamaış olacağın ön izleme mekanizmasını kullanarak anket katılımcısının 
+//    anketleri nasıl dolduracağına dair bir sayfa düzenlemesi daha yapman gerekiyor.
+
+
+// 3. doldurulan anketin verilerinin bir tablo halinde veritabanına ekleme usulüyle kaydedilmesinin hazırlanması gerekiyor.
+
+
+
+// 4. tamamlanmış anket kampanyasının neticesinde (yani maksimum katılım sağlanması sonrası) tablo verilerine
+//    ait bir istatistiksel analiz aracı oluşturulması.
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</script>
+  </body>
+</html>

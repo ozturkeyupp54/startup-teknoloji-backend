@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<h1>Anketler</h1>
+
+<ul>
+    {% for anket in anketler %}
+        <li>
+            <a href="{% url 'anket_detail' anket.pk %}">{{ anket.baslik }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'anket_create' %}">Yeni Anket Oluştur</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<h1>Sorular</h1>
+
+<ul>
+    {% for soru in sorular %}
+        <li>
+            <a href="{% url 'soru_update' soru.pk %}">{{ soru.icerik }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'soru_create' anket.pk %}">Yeni Soru Oluştur</a>
+{% endblock %}

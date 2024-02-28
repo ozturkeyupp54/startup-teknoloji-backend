@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% load static %} {% block container %}
+<link rel="stylesheet" href="{% static 'post/navbar_top_style.css' %}" />
+    <section>
+      <h3>Bizimle Çalışmak İster misiniz?</h3>
+      <p>
+        StartupTeknoloji ailesinde yer almak istiyorsanız hemen bizimle
+        iletişime geçin.
+      </p>
+
+      <form action="">
+        <p>* işareti olan alanlar zorunludur</p>
+
+        <label for="name">İsim-Soyisim *</label>
+        <input type="text" id="name" name="name" />
+        <label for="phone">Telefon *</label>
+        <input type="tel" id="phone" name="phone" />
+        <label for="email">E-posta *</label>
+        <input type="email" id="email" name="email" />
+        <label for="message">Mesaj *</label>
+        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        <button type="submit">Gönder</button>
+      </form>
+    </section>
+{%endblock%}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block container %}
+  <h2>Girişim Haberleri</h2>
+  <a href="{% url 'girisimhaberleri_create' %}">Yeni Haber Ekle</a>
+
+  <ul>
+    {% for haber in girisim_haberleri %}
+      <li>
+        <strong>{{ haber.haber_basligi }}</strong> - {{ haber.haber_tarihi }} 
+        <a href="{% url 'girisimhaberleri_detail' haber.pk %}">Detay</a>
+        <a href="{% url 'girisimhaberleri_update' haber.pk %}">Güncelle</a>
+        <a href="{% url 'girisimhaberleri_delete' haber.pk %}">Sil</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

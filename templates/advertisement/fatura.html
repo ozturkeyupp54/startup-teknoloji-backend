@@ -1,0 +1,353 @@
+
+{%load static%}
+{% include 'advertisement/advertisement_sidebar.html' %}
+
+        <div id="content" class="app-content" role="main">
+                <!-- This is just for ajax, you can remove it in production -->
+                <div class="hide">
+                  <div class="content-header" id="content-header"></div>
+                </div>
+          <!-- Main -->
+          <div class="content-main" id="content-main">
+            <div class="padding box-shadow-1 box-radius-1">
+              <!-- Content -->
+
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="box">
+                    <div class="box-header">
+                      <h2>Kayıtlı Adreslerim</h2>
+                    </div>
+                    <div class="box-divider"></div>
+                    <div class="box-body">
+                      <div
+                        class="address-box box box-shadow-2"
+                        id="address_box_2900"
+                      >
+                        <div class="box-body">
+                          <div class="row">
+                            <div class="address-item col-md-4">Ad Soyad:</div>
+                            <div class="address-item col-md-8">
+                              Hjghgj Ygyugyu
+                            </div>
+                            <div class="address-item col-md-4">
+                              TC Kimlik No:
+                            </div>
+                            <div class="address-item col-md-8">45465765667</div>
+                            <div class="address-item col-md-4">Telefon:</div>
+                            <div class="address-item col-md-8">
+                              (578) 767 8686
+                            </div>
+                            <div class="address-item col-md-10">Tygyu</div>
+                            <div
+                              class="col-md-6 d-flex gap-3 text-right address-control"
+                            >
+                              <button>
+                                <a
+                                  class="text-white"
+                                  href="#delete/2900"
+                                  onclick="return confirm('Seçtiğiniz adres silinecektir. Emin misiniz?');"
+                                  >Adresi Sil</a
+                                >
+                              </button>
+
+                              <button>
+                                <a class="text-white" href="./adres-kayıt.html"
+                                  >Adresi Düzenle</a
+                                >
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="box">
+                    <div class="box-header">
+                      <h2>Yeni Adres Gir</h2>
+                    </div>
+                    <div class="box-divider"></div>
+                    <div class="box-body create-address">
+                      <form
+                        method="POST"
+                        action="#addresses"
+                        accept-charset="UTF-8"
+                        class="form-style"
+                      >
+                        <input
+                          name="_token"
+                          type="hidden"
+                          value="UYRNvHXZ0J67uFCdCIJtJi21AAo3pP2ZH1VB9VK4"
+                        />
+                        <input
+                          id="invoice_type"
+                          name="invoice_type"
+                          type="hidden"
+                          value="personal"
+                        />
+
+                        <div class="row bottom-10">
+                          <div
+                            class="col-md-12 invoice-form show-address-new invoice-form-personal"
+                          >
+                            <div class="address-headline">
+                              <div class="row">
+                                <div class="col-md-12 text-left">
+                                  <ul class="invoice-choice">
+                                    <li
+                                      data-invoice="personal"
+                                      class="invoice-choice-personal"
+                                    >
+                                      Bireysel
+                                    </li>
+                                    <li
+                                      data-invoice="company"
+                                      class="invoice-choice-company"
+                                    >
+                                      Kurumsal
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+
+                            <input
+                              type="hidden"
+                              name="selected_address"
+                              id="selected_address"
+                              value="2900"
+                            />
+                            <div class="address-list"></div>
+
+                            <div class="address-new">
+                              <div class="box">
+                                <div class="box-body box-shadow-2">
+                                  <input
+                                    type="hidden"
+                                    name="add_address"
+                                    id="add_address"
+                                    value="1"
+                                  />
+
+                                  <div
+                                    class="address-save"
+                                    style="margin-bottom: 15px"
+                                  >
+                                    <label class="md-check">
+                                      <input
+                                        type="checkbox"
+                                        id="saveAddressCheckbox"
+                                        name="save_address"
+                                        value="1"
+                                      />
+                                      <i class="indigo"></i>
+                                      <span class="checkbox-label"
+                                        >bu fatura adresini sonraki siparişlerim
+                                        için kaydet</span
+                                      >
+                                    </label>
+                                  </div>
+
+                                  <div
+                                    class="row address-save-group"
+                                    id="saveAddressInput"
+                                    style="display: none"
+                                  >
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label for="address_title"
+                                          >Adres Başlığı</label
+                                        >
+                                        <input
+                                          class="form-control"
+                                          maxlength="100"
+                                          name="address_title"
+                                          type="text"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-budget invoice-personal">
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label for="first_name">Ad</label>
+                                          <input
+                                            class="form-control to-ucwords"
+                                            maxlength="150"
+                                            name="personal[first_name]"
+                                            type="text"
+                                            id="first_name"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label for="last_name">Soyad</label>
+                                          <input
+                                            class="form-control to-ucwords"
+                                            maxlength="150"
+                                            name="personal[last_name]"
+                                            type="text"
+                                            id="last_name"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label for="personal_telephone"
+                                            >Telefon</label
+                                          >
+                                          <input
+                                            class="form-control phone-mask"
+                                            maxlength="20"
+                                            name="personal[telephone]"
+                                            type="text"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label for="citizen_id"
+                                            >TC Kimlik No</label
+                                          >
+                                          <input
+                                            class="form-control citizen-mask"
+                                            maxlength="15"
+                                            name="personal[citizen_id]"
+                                            type="text"
+                                            id="citizen_id"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="form-group">
+                                          <label for="personal_address"
+                                            >Adres</label
+                                          >
+                                          <textarea
+                                            class="form-control to-ucfirst"
+                                            name="personal[address]"
+                                            cols="50"
+                                            rows="10"
+                                          ></textarea>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-budget invoice-company">
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="form-group">
+                                          <label for="company_name"
+                                            >Şirket Unvanı</label
+                                          >
+                                          <input
+                                            class="form-control to-ucwords"
+                                            maxlength="250"
+                                            name="company[name]"
+                                            type="text"
+                                            id="company_name"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label for="company_telephone"
+                                            >Telefon</label
+                                          >
+                                          <input
+                                            class="form-control phone-mask"
+                                            maxlength="150"
+                                            name="company[telephone]"
+                                            type="text"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label for="company_tax_place"
+                                            >Vergi Dairesi</label
+                                          >
+                                          <input
+                                            class="form-control to-ucwords"
+                                            maxlength="150"
+                                            name="company[tax_place]"
+                                            type="text"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label for="company_tax_id"
+                                            >Vergi No</label
+                                          >
+                                          <input
+                                            class="form-control tax-mask"
+                                            maxlength="150"
+                                            name="company[tax_id]"
+                                            type="text"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="form-group">
+                                          <label for="company_address"
+                                            >Adres</label
+                                          >
+                                          <textarea
+                                            class="form-control to-ucfirst"
+                                            name="company[address]"
+                                            cols="50"
+                                            rows="10"
+                                          ></textarea>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <button type="submit" class="btn primary">
+                            Adresi Kaydet
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content End -->
+            </div>
+
+            <!-- Footer -->
+            <!-- Footer End -->
+          </div>
+          <!-- ############ Main END-->
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'post/app.js'%}"></script>
+    <script src="{% static 'post/jquery.min.js'%}"></script>
+    <script src="{% static 'post/jquery.mask.js'%}"></script>
+    <script src="{% static 'post/scripts.js'%}"></script>
+  </body>
+</html>

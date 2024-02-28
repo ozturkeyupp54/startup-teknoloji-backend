@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% load static %} {% block container %}
+<head>
+    <meta charset="UTF-8">
+    <title>Questionnaire: {{ questionnaire.questionnaire_name }}</title>
+</head>
+<body>
+    <h1>{{ questionnaire.questionnaire_name }}</h1>
+    <p>{{ questionnaire.description }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {% for question in questions %}
+            <div>
+                <h3>{{ question.question_text }}</h3>
+                {% if question.question_category == 'MC' %}
+                    {% for choice in question.multichoiceanswer_set.all %}
+                        <input type="radio" name="question-{{ question.id }}" value="{{ choice.id }}"> {{ choice.answer }}</br>
+                    {% endfor %}
+                {% elif question.question_category == 'CN' %}
+                    {% for choice in question.multichoiceanswer_set.all %}
+                        <input type="checkbox" name="question-{{ question.id }}" value="{{ choice.id }}"> {{ choice.answer }}</br>
+                    {% endfor %}
+                {% elif question.question_category == 'TX' %}
+                    <textarea name="question-{{ question.id }}"></textarea>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit">Submit Answers</button>
+    </form>
+
+</body>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %} 
+{%load static%}
+{% block container %}
+<link rel="stylesheet" href="{% static 'post/style.css' %}" />
+  <h2>Girişimci Oluştur</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Girişimci Oluştur</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,67 @@
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import viewsets, status, generics
+from rest_framework.response import Response
+
+
+from investor.models import Investor
+from utils.utils import StandardPagination
+
+
+class InvestorViewSet(viewsets.ModelViewSet):
+    queryset = Investor.objects.filter(is_active=True, is_deleted=False)
+
+    pagination_class = StandardPagination
+    filter_backends = [DjangoFilterBackend]
+    ordering = ['-pk']
+
+    def get_queryset(self):
+        order_by = self.request.query_params.get('order_by', '-id')
+        return Investor.objects.filter(is_active=True,
+                                      is_deleted=False).order_by(order_by)
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return Response(
+                {"status": True,
+                 "message": "Investor record successfully created.",
+                 "data": serializer.data},
+                status=status.HTTP_201_CREATED, headers=headers)
+        return Response(
+            {"status": False,
+             "message": "Investor record creation failed.",
+             "data": serializer.errors},
+            status=status.HTTP_400_BAD_REQUEST)
+
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        if serializer.is_valid():
+            self.perform_update(serializer)
+            return Response(
+                {"status": True,
+                 "message": "Investor record successfully updated.",
+                 "data": serializer.data},
+                status=status.HTTP_200_OK)
+        return Response(
+            {"status": False,
+             "message": "Investor record update failed.",
+             "data": serializer.errors},
+            status=status.HTTP_400_BAD_REQUEST)
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return Response(
+            {"status": True,
+             "message": "Investor record successfully deleted."},
+            status=status.HTTP_204_NO_CONTENT)
+
+    def perform_destroy(self, instance):
+        instance.is_deleted = True
+        instance.is_active = False
+        instance.save()
+        return instance

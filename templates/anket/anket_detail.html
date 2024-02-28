@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<h1>{{ anket.baslik }}</h1>
+<p>{{ anket.aciklama }}</p>
+
+<ul>
+    {% for soru in anket.sorular.all %}
+        <li>
+            **{{ soru.icerik }}**
+            {% if soru.question_type == 'MULTIPLE_CHOICE' %}
+                <ul>
+                    {% for secenek in soru.secenekler.all %}
+                        <li>
+                            <input type="radio" name="secenek" value="{{ secenek.pk }}">
+                            {{ secenek.icerik }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% elif soru.question_type == 'YES_NO' %}
+                <ul>
+                    <li>
+                        <input type="radio" name="evet_hayir" value="True"> Evet
+                    </li>
+                    <li>
+                        <input type="radio" name="evet_hayir" value="False"> Hayır
+                    </li>
+                </ul>
+            {% else %}
+                <input type="text" name="cevap">
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+<form action="{% url 'anket_update' anket.pk %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Anketi Güncelle">
+</form>
+
+<a href="{% url 'anket_delete' anket.pk %}">Anketi Sil</a>
+{% endblock %}

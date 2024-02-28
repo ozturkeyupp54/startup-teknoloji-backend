@@ -1,0 +1,101 @@
+{%load static%}
+{% include 'advertisement/advertisement_sidebar.html' %}
+              <div class="light box-shadow-y">
+                <div class="p-4 p-md-head">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <h4 class="l-s-n-1x">
+                        <span class="_300">Ödemeler</span>
+                      </h4>
+                      <div class="mt-4">
+                        <a href="./bakiye.html" class="btn primary b-a"
+                          ><i class="fa fa-credit-card"></i> Bakiyeyi Yükle</a
+                        >
+                      </div>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                      <div class="d-flex d-flex-right text-center">
+                        <div class="p-3 px-4 r-r b-a">
+                          <span class="text-muted">Mevcut Bakiyeniz</span>
+                          <div class="text-theme text-md">0 </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="padding">
+                <div class="box">
+                  <div class="box-header">
+                    <h2>Son Yüklemelerim</h2>
+                  </div>
+                  <div class="box-divider m-0"></div>
+                  <div class="box-body table-responsive">
+                    <table
+                      class="table table-orders table-middle table-bordered"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Sipariş No</th>
+                          <th>Durum</th>
+                          <th>Sipariş Tarihi</th>
+                          <th>Bakiye</th>
+                          <th>Toplam (Kdv Dahil)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td colspan="5">Henüz yükleme yapılmamış.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Large modal -->
+              <div id="remoteAjax" class="modal fade" data-backdrop="true">
+                <div class="modal-dialog modal-lg animate" id="animate">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">İşlem Detayı</h5>
+                    </div>
+                    <div class="modal-body text-center p-lg">
+                      <p>
+                        <i class="fa fa-spin fa-spinner"></i> İçerik
+                        yükleniyor...
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-default p-x-md"
+                        data-dismiss="modal"
+                      >
+                        Kapat
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+              </div>
+
+              <!-- Content End -->
+            </div>
+
+            <!-- Footer -->
+            <!-- Footer End -->
+          </div>
+          <!-- ############ Main END-->
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'post/app.js'%}"></script>
+    <script src="{% static 'post/jquery.min.js'%}"></script>
+    <script src="{% static 'post/jquery.mask.js'%}"></script>
+    <script src="{% static 'post/scripts.js'%}"></script>
+    <script src="{% static 'post/bootstrap.min.js'%}"></script>
+    <script src="{% static 'post/jquery.creditCardValidator.js'%}"></script>
+  </body>
+</html>
